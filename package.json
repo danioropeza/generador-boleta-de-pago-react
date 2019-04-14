@@ -1,0 +1,40 @@
+{
+  "name": "gimnasio",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "firebase": "^5.9.4",
+    "google-maps-react": "^2.0.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.4",
+    "react-bootstrap-carousel": "^3.4.1",
+    "react-dom": "^16.8.4",
+    "react-responsive-carousel": "^3.1.47",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.8",
+    "semantic-ui-carousel-react": "^1.0.3",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.86.0",
+    "validator": "^10.11.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "mocha",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.3"
+  }
+}
