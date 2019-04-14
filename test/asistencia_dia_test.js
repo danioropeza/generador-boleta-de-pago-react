@@ -6,5 +6,9 @@ describe("Asistencia por dia", function() {
         let asistencia= new AsistenciaDia(4,5,'tue mar 28 2009');
         expect(asistencia.calcularHoras()).equal(1);
     });
+    it("deberia obtener 11 horas de asistencia cuando registro una asistencia de 1 a 11.", function() {
+        let asistencia= new AsistenciaDia(1,11,'tue mar 28 2009');
+        expect(asistencia.calcularHoras()).equal(11);
+    });
 
 });

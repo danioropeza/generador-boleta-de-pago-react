@@ -7,6 +7,7 @@ class Empleado {
         this.ci = empleado.ci;
         this.salario = empleado.salario;
         this.fecha_nacimiento = empleado.fecha_nacimiento;
+        this.fecha_inicio = empleado.fecha_inicio;
         this.tipo = empleado.tipo;
         this.horas = empleado.horas;
         this.comision = empleado.comision;

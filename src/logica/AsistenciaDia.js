@@ -5,7 +5,16 @@ class AsistenciaDia {
         this.fecha = fecha;
     }
     calcularHoras(){
-        return this.hora_salida - this.hora_ingreso;
+        let horas_trabajadas = this.hora_salida-this.hora_ingreso;
+        if(this.sonMasDeOchoHoras(horas_trabajadas))
+            horas_trabajadas = horas_trabajadas + this.calcularHorasExtra(horas_trabajadas);
+        return horas_trabajadas;
+    }
+    sonMasDeOchoHoras(horas_trabajadas){
+        return horas_trabajadas>8;
+    }
+    calcularHorasExtra(horas_trabajadas){
+        return (horas_trabajadas-8)*0.5;
     }
 }
 module.exports = { AsistenciaDia };
