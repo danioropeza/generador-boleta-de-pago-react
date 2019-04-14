@@ -7,7 +7,11 @@ class FormularioEmpleado extends React.Component{
         data: {
             ci: "",
             nombre: "",
-            descripcion: ""
+            salario: "",
+            fecha_de_nacimiento: "",
+            tipo: "",
+            horas: "",
+            comision: "",
         },
         loading: false,
         errors: {}
@@ -46,15 +50,55 @@ class FormularioEmpleado extends React.Component{
                     />
                 </Form.Field>  
                 <Form.Field>
-                    <label htmlFor="descripcion">Descripcion</label>
+                    <label htmlFor="salario">Salario</label>
                     <input  
-                        id="descripcion" 
-                        name="descripcion" 
-                        placeholder="Guapo y extrovertido" 
-                        value={data.descripcion}    
+                        id="salario" 
+                        name="salario" 
+                        placeholder="9000" 
+                        value={data.salario}    
                         onChange={this.onChange}
                     />
                 </Form.Field> 
+                <Form.Field>
+                    <label htmlFor="fecha_de_nacimiento">Fecha de nacimiento</label>
+                    <input  
+                        id="fecha_de_nacimiento" 
+                        name="fecha_de_nacimiento" 
+                        placeholder="10/12/97" 
+                        value={data.fecha_de_nacimiento}    
+                        onChange={this.onChange}
+                    />
+                </Form.Field> 
+                <Form.Field>
+                    <label htmlFor="tipo">Tipo</label>
+                    <input  
+                        id="tipo" 
+                        name="tipo" 
+                        placeholder="fijo" 
+                        value={data.tipo}    
+                        onChange={this.onChange}
+                    />
+                </Form.Field>
+                <Form.Field>
+                    <label htmlFor="horas">Horas</label>
+                    <input  
+                        id="horas" 
+                        name="horas" 
+                        placeholder="10" 
+                        value={data.horas}    
+                        onChange={this.onChange}
+                    />
+                </Form.Field> 
+                <Form.Field>
+                    <label htmlFor="comision">Comision</label>
+                    <input  
+                        id="comision" 
+                        name="comision" 
+                        placeholder="110" 
+                        value={data.comision}    
+                        onChange={this.onChange}
+                    />
+                </Form.Field>  
                 <Button primary>Registrar Empleado</Button>
             </Form>
         );

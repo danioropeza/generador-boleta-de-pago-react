@@ -1,21 +1,21 @@
 import React from 'react'; 
-import FormularioEmpleado from "../forms/FormularioEmpleado";
+import FormularioVenta from "../forms/FormularioVenta";
 import { Link } from "react-router-dom";
 import firebase from "../API/firebase";
 
-class PaginaEmpleado extends React.Component {
+class PaginaVenta extends React.Component {
     submit = (data) => {
-        var task = firebase.database().ref("empleado/" + data.ci);
+        var task = firebase.database().ref("venta/" + 123);
         task.set(data);
-        alert("se guardo el empleado correctamente!");
+        alert("se guardo la venta correctamente!");
     };
     render(){
         return(            
             <div>
                 <div className="ui container">
                     <br />
-                    <h1>Registro de nuevo empleado</h1>
-                    <FormularioEmpleado submit={this.submit}/>
+                    <h1>Registro de nueva venta</h1>
+                    <FormularioVenta submit={this.submit}/>
                     <br />
                     <Link className="ui button" to="/">Cancelar</Link>
                     <br />
@@ -24,4 +24,4 @@ class PaginaEmpleado extends React.Component {
         );
     }
 }
-export default PaginaEmpleado;
+export default PaginaVenta;

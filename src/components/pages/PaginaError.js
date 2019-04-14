@@ -2,7 +2,7 @@ import React from 'react';
 
 const PaginaError = () => (
     <div>
-        Error: Error url no existente!
+        Error url no existente!
     </div>
 )
 
