@@ -8,7 +8,7 @@ class PaginaEmpleado extends React.Component {
         var task = firebase.database().ref("empleado/" + data.ci);
         task.set(data);
         alert("se guardo el empleado correctamente!");
-    };
+    }
     render(){
         return(            
             <div>

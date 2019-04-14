@@ -7,7 +7,8 @@ class FormularioVenta extends React.Component{
         data: {
             monto: "",
             descripcion: "",
-            fecha: ""
+            fecha: "",
+            empleadoCI: ""
         },
         loading: false,
         errors: {}
@@ -46,11 +47,21 @@ class FormularioVenta extends React.Component{
                 </Form.Field> 
                 <Form.Field>
                     <label htmlFor="fecha">Fecha</label>
-                    <input  
+                    <input 
+                        type="date" 
                         id="fecha" 
                         name="fecha" 
-                        placeholder="20/04/2019" 
                         value={data.fecha}    
+                        onChange={this.onChange}
+                    />
+                </Form.Field> 
+                <Form.Field>
+                    <label htmlFor="empleadoCI">Empleado CI</label>
+                    <input  
+                        id="empleadoCI" 
+                        name="empleadoCI" 
+                        placeholder="7711450" 
+                        value={data.empleadoCI}    
                         onChange={this.onChange}
                     />
                 </Form.Field>  

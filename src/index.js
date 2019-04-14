@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import "semantic-ui-css/semantic.min.css";
 import App from './App';
-import Navigation from "./components/Navigation";
-import Footer from "./components/Footer";
+//import Navigation from "./components/Navigation";
+//import Footer from "./components/Footer";
 import * as serviceWorker from './serviceWorker';
 
 

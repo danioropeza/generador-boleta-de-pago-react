@@ -7,7 +7,8 @@ class FormularioAsistencia extends React.Component{
         data: {
             hora_ingreso: "",
             hora_salida: "",
-            fecha: ""
+            fecha: "",
+            empleadoCI: ""
         },
         loading: false,
         errors: {}
@@ -48,10 +49,20 @@ class FormularioAsistencia extends React.Component{
                 <Form.Field>
                     <label htmlFor="fecha">Fecha</label>
                     <input  
+                        type="date"
                         id="fecha" 
                         name="fecha" 
-                        placeholder="20/04/2019" 
                         value={data.fecha}    
+                        onChange={this.onChange}
+                    />
+                </Form.Field>
+                <Form.Field>
+                    <label htmlFor="empleadoCI">Empleado CI</label>
+                    <input  
+                        id="empleadoCI" 
+                        name="empleadoCI" 
+                        placeholder="7711450" 
+                        value={data.empleadoCI}    
                         onChange={this.onChange}
                     />
                 </Form.Field> 
