@@ -1,5 +1,5 @@
-const CalcularSalario = require("./Calculadoras/CalcularSalario").CalcularSalario;
-const Validador = require("./Validadores/Validador").Validador;
+const CalcularSalario = require("../Calculadoras/CalcularSalario").CalcularSalario;
+const Validador = require("../Validadores/Validador").Validador;
 
 class DatosBoletaDePago {
     constructor(empleado) {

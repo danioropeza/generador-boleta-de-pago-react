@@ -1,8 +1,8 @@
 var expect = require("chai").expect;
 
 const Empleado = require("../src/logica/Empleado").Empleado;
-const DatosBoletaDePago = require("../src/logica/DatosBoletaDePago").DatosBoletaDePago;
-const GeneradorBoletaDePagoFactura = require("../src/logica/GeneradorBoletaDePagoFactura").GeneradorBoletaDePagoFactura;
+const DatosBoletaDePago = require("../src/logica/BoletasDePago/DatosBoletaDePago").DatosBoletaDePago;
+const GeneradorBoletaDePagoFactura = require("../src/logica/BoletasDePago/GeneradorBoletaDePagoFactura").GeneradorBoletaDePagoFactura;
 
 
 describe("Tests para el generador de factura de boleta de pago ", function() {

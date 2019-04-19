@@ -1,3 +1,6 @@
+var funciones_fecha  = require("../FuncionesFecha");
+
+
 class CalcularSalarioFijo{
     constructor(empleado) {
         this.empleado = empleado;
@@ -12,12 +15,12 @@ class CalcularSalarioFijo{
     }
     obtenerSueldoDiasRestantesDelMes(){
         let salario_dia = this.calcularSalarioDia();
-        let dias_trabajados = this.contarDiasHabilesDeUnMesDesde(this.fecha_inicio_trabajo.getDate());
+        let dias_trabajados = funciones_fecha.contarDiasHabilesDeUnMesDesde(this.fecha_inicio_trabajo.getDate(),this.fecha_inicio_trabajo);
         return Math.round(salario_dia*dias_trabajados);
     }
 
     calcularSalarioDia() {
-        return this.empleado.salario / this.contarDiasHabilesDeUnMesDesde(1);
+        return this.empleado.salario / funciones_fecha.contarDiasHabilesDeUnMesDesde(1,this.fecha_inicio_trabajo);
     }
 
     empezoATrabajarRecien() {
@@ -32,29 +35,5 @@ class CalcularSalarioFijo{
         return this.fecha_inicio_trabajo.getFullYear()==(new Date().getFullYear());
     }
 
-    calcularDiasDeUnMes(mes, año) {
-        return new Date(año, mes+1, 0).getDate();
-    }
-    contarDiasHabilesDeUnMesDesde(dia){
-        let cantidad_dias = this.calcularDiasDeUnMes(this.fecha_inicio_trabajo.getMonth(),this.fecha_inicio_trabajo.getFullYear());
-        let cantidad_dias_habiles =0;
-        for(let i=dia; i<=cantidad_dias; i++)
-        {
-            if(!this.esDiaNoHabil(new Date(this.fecha_inicio_trabajo.getFullYear(), this.fecha_inicio_trabajo.getMonth(), i))){
-                cantidad_dias_habiles++;
-            }
-        }
-        return cantidad_dias_habiles;
-    }
-    esDiaNoHabil(fecha){
-        return this.esDomingo(fecha) || this.esSabado(fecha);
-    }
-    esDomingo(fecha) {
-        return fecha.getDay() == 0;
-    }
-
-    esSabado(fecha) {
-        return fecha.getDay() == 6;
-    }
 }
 module.exports = { CalcularSalarioFijo };
