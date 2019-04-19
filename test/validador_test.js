@@ -19,6 +19,11 @@ describe(" Validadores", function() {
         expect(validador.validadorSalarioFijo(fecha)).equal(true);
     });
 
+    it("deberia devolver true cuando quiero validar el pago del salario por hora en un dia viernes", function() {
+        let validador = new ValidadorSalarioPorHora();
+        let fecha = new Date("April 19 2019");
+        expect(validador.validadorSalarioPorHora(fecha)).equal(true);
+    });
 
     it("deberia devolver true cuando quiero validar el pago del salario por comision un dia viernes y es semana par" , function() {
         let validador = new ValidadorSalarioPorComision();

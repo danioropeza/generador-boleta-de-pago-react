@@ -34,7 +34,14 @@ describe(" Fechas", function() {
         expect(funciones_fecha.calcularUltimoDiaHabilDelMes(fecha_actual)).equal(30);
     });
 
-
+    it("deberia devolver 29 cuando obtengo el ultimo dia habil del mes de marzo de 2019", function() {
+        let fecha_actual = new Date("March 7 2019");
+        expect(funciones_fecha.calcularUltimoDiaHabilDelMes(fecha_actual)).equal(29);
+    });
+    it("deberia devolver 30 cuando obtengo el ultimo dia habil del mes de agosto de 2019", function() {
+        let fecha_actual = new Date("August 7 2019");
+        expect(funciones_fecha.calcularUltimoDiaHabilDelMes(fecha_actual)).equal(30);
+    });
 
 
 
