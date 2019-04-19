@@ -1,7 +1,6 @@
 var funciones_fecha = {
     contarDiasHabilesDeUnMesDesde(dia, fecha) {
         let cantidad_dias = this.calcularDiasDeUnMes(fecha.getMonth(), fecha.getFullYear());
-        console.log(cantidad_dias);
         let cantidad_dias_habiles = 0;
         for (let i = dia; i <= cantidad_dias; i++) {
             if (!this.esDiaNoHabil(new Date(fecha.getFullYear(), fecha.getMonth(), i))) {
@@ -12,7 +11,6 @@ var funciones_fecha = {
     },
 
     esSabado(fecha) {
-        console.log(fecha.getDay(), fecha);
         return fecha.getDay() === 6;
     },
     esDomingo(fecha) {
@@ -43,8 +41,6 @@ var funciones_fecha = {
     }
 }
 module.exports=funciones_fecha;
-//.exports = {contarDiasHabilesDeUnMesDesde, esViernes, esSabado,esDomingo,esSemanaPar,calcularDiasDeUnMes,calcularUltimoDiaHabilDelMes};
-
 
 Date.prototype.getWeek = function() {
     var date = new Date(this.getTime());
