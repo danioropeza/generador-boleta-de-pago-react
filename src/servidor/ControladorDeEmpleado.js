@@ -1,5 +1,5 @@
 Empleado = require('./ModeloDeEmpleado');
-exports.index = function (solicitud, respuesta) {
+indice = function (solicitud, respuesta) {
     Empleado.get(function (error, empleados) {
         if (error) {
             respuesta.json({
@@ -14,7 +14,7 @@ exports.index = function (solicitud, respuesta) {
         });
     });
 };
-exports.new = function (solicitud, respuesta) {
+nuevo = function (solicitud, respuesta) {
     var empleado = new Empleado();
     var { nombre, ci, salario, fechaNacimiento, fechaInicio, tipo, metodoDePago } = solicitud.body; 
     empleado.nombre = nombre;
@@ -33,7 +33,7 @@ exports.new = function (solicitud, respuesta) {
         });
     });
 };
-exports.view = function (solicitud, respuesta) {
+vista = function (solicitud, respuesta) {
     Empleado.findById(solicitud.params.empleado_id, function (error, empleado) {
         if (error)
             respuesta.send(error);
@@ -43,7 +43,7 @@ exports.view = function (solicitud, respuesta) {
         });
     });
 };
-exports.update = function (solicitud, respuesta) {
+actualizacion = function (solicitud, respuesta) {
     var { nombre, ci, salario, fechaNacimiento, fechaInicio, tipo, metodoDePago } = solicitud.body; 
     Empleado.findById(solicitud.params.empleado_id, function (error, empleado) {
         if (error)
@@ -65,7 +65,7 @@ exports.update = function (solicitud, respuesta) {
         });
     });
 };
-exports.delete = function (solicitud, respuesta) {
+borrar = function (solicitud, respuesta) {
     Empleado.remove({
         _id: solicitud.params.empleado_id
     }, function (error, empleado) {
@@ -77,3 +77,4 @@ exports.delete = function (solicitud, respuesta) {
         });
     });
 };
+module.exports = { indice, nuevo, vista, actualizacion, borrar };

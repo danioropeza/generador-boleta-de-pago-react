@@ -10,11 +10,11 @@ ruteador.get('/', function (solicitud, respuesta) {
 var ControladorDeEmpleado = require('./ControladorDeEmpleado');
 // Contact routes
 ruteador.route('/empleados')
-        .get(ControladorDeEmpleado.index)
-        .post(ControladorDeEmpleado.new);
+        .get(ControladorDeEmpleado.indice)
+        .post(ControladorDeEmpleado.nuevo);
 ruteador.route('/empleados/:empleado_id')
-        .get(ControladorDeEmpleado.view)
-        .patch(ControladorDeEmpleado.update)
-        .put(ControladorDeEmpleado.update)
-        .delete(ControladorDeEmpleado.delete);
+        .get(ControladorDeEmpleado.vista)
+        .patch(ControladorDeEmpleado.actualizacion)
+        .put(ControladorDeEmpleado.actualizacion)
+        .delete(ControladorDeEmpleado.borrar);
 module.exports = ruteador;
