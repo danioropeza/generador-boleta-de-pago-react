@@ -27,6 +27,4 @@ describe("Calcular salario comision", function() {
         let calculadora_comision = new CalcularSalarioPorComision(empleado_comision);
         expect(calculadora_comision.calcularSalarioPorComision()).equal(625);
     });
-
-
 });
