@@ -11,8 +11,8 @@ aplicacion.use(bodyParser.json());
 mongoose.connect('mongodb://localhost/resthub');
 var baseDeDatos = mongoose.connection;
 var puerto = process.env.PORT || 8080;
-aplicacion.get('/', (solicitud, respuesta) => respuesta.send('Hello World with Express'));
+aplicacion.get('/', (solicitud, respuesta) => respuesta.send('Hola mundo'));
 aplicacion.use('/api', rutasAPI)
 aplicacion.listen(puerto, function () {
-    console.log("Running RestHub on port " + puerto);
+    console.log("Rest funcionando en el puerto" + puerto);
 });
