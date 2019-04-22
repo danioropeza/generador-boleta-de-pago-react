@@ -8,7 +8,7 @@ const AsistenciaDia = require("../src/logica/AsistenciaDia").AsistenciaDia;
 
 
 
-describe("Calcular salario hora", function() {
+describe("Pruebas para calcular salario hora", function() {
 
     let empleadoHora = new Empleado({nombre: "Adrian Vargas",
         ci: "7711450",

@@ -4,7 +4,7 @@ const ValidadorSalarioPorHora = require("../src/logica/Validadores/ValidadorSala
 const ValidadorSalarioFijo = require("../src/logica/Validadores/ValidadorSalarioFijo").ValidadorSalarioFijo;
 const ValidadorSalarioPorComision = require("../src/logica/Validadores/ValidadorSalarioPorComision").ValidadorSalarioPorComision;
 
-describe(" Validadores", function() {
+describe("Pruebas para validadores", function() {
     it("Deberia devolver false cuando quiero validar el pago del salario fijo en un dia diferente a fin de mes", function() {
         let validador = new ValidadorSalarioFijo();
         let fecha = new Date("April 7 2019");

@@ -1,21 +1,19 @@
-const MetodoDeNotificacionWhatsapp = require("./MetodoDeNotificacionWhatsapp").CalcularSalarioPorHora;
-const MetodoDeNotificacionFacebook = require("./MetodoDeNotificacionFacebook").CalcularSalarioFijo;
-const MetodoDeNotificacionEmail = require("./MetodoDeNotificacionEmail").CalcularSalarioPorComision;
+const MetodoDeNotificacionWhatsapp = require("./MetodoDeNotificacionWhatsapp").MetodoDeNotificacionWhatsapp;
+const MetodoDeNotificacionFacebook = require("./MetodoDeNotificacionFacebook").MetodoDeNotificacionFacebook;
+const MetodoDeNotificacionEmail = require("./MetodoDeNotificacionEmail").MetodoDeNotificacionEmail;
 
 class MetodoDeNotificacion {
-    constructor(metodo) {
+    constructor(mensaje, medio) {
+        this.mensaje = mensaje;
+        this.medio = medio;
+    }
+    enviar() {
         
     }
-    ObtenerClaseDeCalculadoraDeSalario(){
-        switch ("") {
-            case "whatsapp":
-                return new MetodoDeNotificacionWhatsapp(this.empleado);
-            case "facebook":
-                return new MetodoDeNotificacionFacebook(this.empleado);
-            default:
-                return new MetodoDeNotificacionEmail(this.empleado);
-        }
-    }
+    
 }
 
 module.exports = { MetodoDeNotificacion };
+
+
+

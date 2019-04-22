@@ -6,7 +6,7 @@ const CalcularSalarioFijo = require("../src/logica/Calculadoras/CalcularSalarioF
 
 
 
-describe("Calcular salario fijo", function() {
+describe("Pruebas para calcular salario fijo", function() {
     let empleadoFijo = new Empleado({nombre: "Adrian Vargas",
         ci: "7711450",
         salario: 6000,

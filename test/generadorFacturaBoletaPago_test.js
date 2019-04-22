@@ -5,7 +5,7 @@ const DatosBoletaDePago = require("../src/logica/BoletasDePago/DatosBoletaDePago
 const GeneradorBoletaDePagoFactura = require("../src/logica/BoletasDePago/GeneradorBoletaDePagoFactura").GeneradorBoletaDePagoFactura;
 
 
-describe("Tests para el generador de factura de boleta de pago ", function() {
+describe("Pruebas para el generador de factura de boleta de pago ", function() {
     let empleadoFijoUno = new Empleado({
         nombre: "Adrian Vargas",
         ci: "7711450",

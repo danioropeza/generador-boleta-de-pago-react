@@ -4,7 +4,7 @@ const TarjetaAsistencia = require("../src/logica/TarjetaAsistencia").TarjetaAsis
 const AsistenciaDia = require("../src/logica/AsistenciaDia").AsistenciaDia;
 
 
-describe("Tarjeta asistencia", function() {
+describe("Pruebas para tarjeta asistencia", function() {
 
     it("deberia obtener como salario del empleado 0 cuando tengo un empleado sin ni una tarjeta de asistencia ", function() {
         let tarjetaAsistencia = new TarjetaAsistencia();

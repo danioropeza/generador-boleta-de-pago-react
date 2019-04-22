@@ -5,7 +5,7 @@ var assert = require("chai").assert;
 const Empleado = require("../src/logica/Empleado").Empleado;
 const AssertionError = require("assert");
 
-describe("Pruebas para la conexion de la base de datos y empleado", function () {
+describe("Pruebas para la conexion de la base de datos con empleado", function () {
     var baseDeDatosTemporal = mongoMock.MongoClient;
     var urlBaseDeDatos = 'mongodb://localhost/resthub';
     var empleadoMario = {

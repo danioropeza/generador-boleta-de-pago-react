@@ -7,7 +7,7 @@ const GeneradorBoletaDePagoFactura = require("../src/logica/BoletasDePago/Genera
 const filtroBoletasDePagoPorFechaDePago  = require("../src/logica/BoletasDePago/FiltroBoletasDePagoPorFechaDePago");
 
 
-describe("Tests para el generador de factura de boleta de pago ", function() {
+describe("Pruebas para la funcion de filtrar boletas ", function() {
     let empleadoFijoUno = new Empleado({
         nombre: "Adrian Vargas",
         ci: "7711450",

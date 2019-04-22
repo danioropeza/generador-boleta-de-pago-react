@@ -4,7 +4,7 @@ const TarjetaVentas= require("../src/logica/TarjetaVentas").TarjetaVentas;
 const Venta= require("../src/logica/Venta").Venta;
 
 
-describe("Tarjeta Venta", function() {
+describe("Pruebas para tarjeta Venta", function() {
 
     it("deberia obtener como salario 0 para un empleado que no tiene ni una tarjeta de venta", function() {
         let tarjetaVentas= new TarjetaVentas();

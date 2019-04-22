@@ -7,7 +7,7 @@ const Venta = require("../src/logica/Venta").Venta;
 
 
 
-describe("Calcular salario comision", function() {
+describe("Pruebas para calcular salario comision", function() {
     let empleadoComision = new Empleado({nombre: "Adrian Vargas",
         ci: "7711450",
         fechaNacimiento: "tue mar 28 2009",

@@ -5,7 +5,7 @@ const PagoEnDeposito = require ('../src/logica/MetodosDePago/PagoEnDeposito').Pa
 const PagoEnEfectivo = require ('../src/logica/MetodosDePago/PagoEnEfectivo').PagoEnEfectivo;
 const PagoEnCheque = require ('../src/logica/MetodosDePago/PagoEnCheque').PagoEnCheque;
 
-describe('Pruebas para metodos de Pago', function() {
+describe('Pruebas para metodos de notificacion', function() {
     let empleado = new Empleado({
         nombre: "Adrian Vargas",
         ci: "7711450",

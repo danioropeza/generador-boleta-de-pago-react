@@ -3,7 +3,7 @@ var expect = require("chai").expect;
 var funcionesFecha  = require("../src/logica/FuncionesFecha");
 
 
-describe(" Fechas", function() {
+describe("Pruebas para funciones fecha", function() {
     it("deberia devolver false cuando se le pasa una fecha que no coincide con el dia viernes", function() {
         let fechaActual = new Date("April 18 2019");
         expect(funcionesFecha.esViernes(fechaActual)).equal(false);
