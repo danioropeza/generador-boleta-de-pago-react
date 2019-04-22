@@ -9,8 +9,8 @@ describe("Pruebas para la conexion de la base de datos y empleado", function () 
     var baseDeDatosTemporal = mongoMock.MongoClient;
     var urlBaseDeDatos = 'mongodb://localhost/resthub';
     var empleadoMario = {
-        nombre: "Mario Palacios", ci: "8339221", salario: "7000", fecha_nacimiento: "tue mar 28 2009", 
-        fecha_inicio: "tue mar 28 2009", tipo: "Parcial", metodo_pago: "normal"
+        nombre: "Mario Palacios", ci: "8339221", salario: "7000", fechaNacimiento: "tue mar 28 2009", 
+        fechaInicio: "tue mar 28 2009", tipo: "Parcial", metodoPago: "normal"
     } 
 
     it("Deberia crear correctamente un empleado con el nombre Mario Palacios", function (done) {   
@@ -22,10 +22,10 @@ describe("Pruebas para la conexion de la base de datos y empleado", function () 
                 expect(empleado.nombre).eq(empleadoObtenido.nombre);
                 expect(empleado.ci).eq(empleadoObtenido.ci);
                 expect(empleado.salario).eq(empleadoObtenido.salario);
-                expect(empleado.fecha_nacimiento).eq(empleadoObtenido.fecha_nacimiento);
-                expect(empleado.fecha_inicio).eq(empleadoObtenido.fecha_inicio);
+                expect(empleado.fechaNacimiento).eq(empleadoObtenido.fechaNacimiento);
+                expect(empleado.fechaInicio).eq(empleadoObtenido.fechaInicio);
                 expect(empleado.tipo).eq(empleadoObtenido.tipo);
-                expect(empleado.metodo_pago).eq(empleadoObtenido.metodo_pago);
+                expect(empleado.metodoPago).eq(empleadoObtenido.metodoPago);
                 done();
             });
             baseDeDatos.close();
@@ -43,10 +43,10 @@ describe("Pruebas para la conexion de la base de datos y empleado", function () 
                     expect(empleado.nombre).eq(empleadoObtenido.nombre);
                     expect(empleado.ci).eq(empleadoObtenido.ci);
                     expect(empleado.salario).eq(empleadoObtenido.salario);
-                    expect(empleado.fecha_nacimiento).eq(empleadoObtenido.fecha_nacimiento);
-                    expect(empleado.fecha_inicio).eq(empleadoObtenido.fecha_inicio);
+                    expect(empleado.fechaNacimiento).eq(empleadoObtenido.fechaNacimiento);
+                    expect(empleado.fechaInicio).eq(empleadoObtenido.fechaInicio);
                     expect(empleado.tipo).eq(empleadoObtenido.tipo);
-                    expect(empleado.metodo_pago).eq(empleadoObtenido.metodo_pago);
+                    expect(empleado.metodoPago).eq(empleadoObtenido.metodoPago);
                     done();
                 });
 
@@ -68,10 +68,10 @@ describe("Pruebas para la conexion de la base de datos y empleado", function () 
                                 expect(empleado.nombre).eq(empleadoObtenido.nombre);
                                 expect(empleado.ci).eq(empleadoObtenido.ci);
                                 expect(empleado.salario).eq(empleadoObtenido.salario);
-                                expect(empleado.fecha_nacimiento).eq(empleadoObtenido.fecha_nacimiento);
-                                expect(empleado.fecha_inicio).eq(empleadoObtenido.fecha_inicio);
+                                expect(empleado.fechaNacimiento).eq(empleadoObtenido.fechaNacimiento);
+                                expect(empleado.fechaInicio).eq(empleadoObtenido.fechaInicio);
                                 expect("Comision").eq(empleadoEncontrado.tipo);
-                                expect(empleado.metodo_pago).eq(empleadoObtenido.metodo_pago);
+                                expect(empleado.metodoPago).eq(empleadoObtenido.metodoPago);
                                 done();
                             });
                         });

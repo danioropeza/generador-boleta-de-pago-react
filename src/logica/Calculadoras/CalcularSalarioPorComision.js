@@ -1,11 +1,11 @@
 class CalcularSalarioPorComision{
     constructor(empleado) {
         this.empleado = empleado;
-        this.tarjeta_ventas = empleado.tarjeta_ventas;
+        this.tarjetaVentas = empleado.tarjetaVentas;
         this.obtenerSalario = this.calcularSalarioPorComision.bind(this);
     }
     calcularSalarioPorComision(){
-        return this.tarjeta_ventas.calcularComisionTotal();
+        return this.tarjetaVentas.calcularComisionTotal();
     }
 }
 

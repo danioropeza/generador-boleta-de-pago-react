@@ -6,23 +6,23 @@ class Empleado {
         this.nombre = empleado.nombre;
         this.ci = empleado.ci;
         this.salario = empleado.salario;
-        this.fecha_nacimiento = empleado.fecha_nacimiento;
-        this.fecha_inicio = empleado.fecha_inicio;
+        this.fechaNacimiento = empleado.fechaNacimiento;
+        this.fechaInicio = empleado.fechaInicio;
         this.tipo = empleado.tipo;
         this.horas = empleado.horas;
         this.comision = empleado.comision;
-        this.tarjeta_asistencia = new TarjetaAsistencia();
-        this.tarjeta_ventas = new TarjetaVentas();
-        this.metodo_pago = null;
+        this.tarjetaAsistencia = new TarjetaAsistencia();
+        this.tarjetaVentas = new TarjetaVentas();
+        this.metodoDePago = null;
     }
-    agregarTarjetaAsistencia(tarjeta_asistencia){
-        this.tarjeta_asistencia=tarjeta_asistencia;
+    agregarTarjetaAsistencia(tarjetaAsistencia){
+        this.tarjetaAsistencia = tarjetaAsistencia;
     }
-    agregarTarjetaVenta(tarjeta_ventas){
-        this.tarjeta_ventas=tarjeta_ventas;
+    agregarTarjetaVenta(tarjetaVentas){
+        this.tarjetaVentas = tarjetaVentas;
     }
-    elegirMetodoPago(metodo_pago){
-        this.metodo_pago=metodo_pago;
+    elegirMetodoDePago(metodoDePago){
+        this.metodoDePago = metodoDePago;
     }
 }
 module.exports = { Empleado };

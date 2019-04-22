@@ -1,11 +1,11 @@
 class CalcularSalarioPorHora{
     constructor(empleado) {
         this.empleado = empleado;
-        this.tarjeta_asistencia = empleado.tarjeta_asistencia;
+        this.tarjetaAsistencia = empleado.tarjetaAsistencia;
         this.obtenerSalario = this.calcularSalarioPorHora.bind(this);
     }
     calcularSalarioPorHora(){
-        return this.tarjeta_asistencia.calcularHorasTrabajadas()*200;
+        return this.tarjetaAsistencia.calcularHorasTrabajadas() * 200;
     }
 
 }
