@@ -27,6 +27,13 @@ describe("Pruebas para calcular salario fijo", function() {
         fechaInicio: new Date(2019, 3, 12, 12, 30, 0, 0)
     });
 
+    let empleadoFijoCuatro = new Empleado({nombre: "Adrian Vargas",
+        ci: "7711450",
+        salario: 6000,
+        fechaNacimiento: "tue mar 28 2009",
+        fechaInicio: new Date(2019, 0, 12, 2, 30, 0, 0)
+    });
+
     it("deberia obtener true si el empleado ingreso este mes a trabajar", function() {
         let calcularSalarioFijo = new CalcularSalarioFijo(empleadoFijoDos);
         expect(calcularSalarioFijo.empezoATrabajarRecien()).equal(true);
@@ -37,8 +44,8 @@ describe("Pruebas para calcular salario fijo", function() {
         expect(calcularSalarioFijo.obtenerSueldoDiasRestantesDelMes()).equal(3545);
     });
 
-    it("deberia obtener como monto 6000 cuando se genere la boleta de pago para un empleado fijo con sueldo de 6000", function() {
-        let calcularSalarioFijo = new CalcularSalarioFijo(empleadoFijo);
+    it("deberia obtener como monto 6000 cuando se genere la boleta de pago para un empleado fijo que no entro recien a trabajar", function() {
+        let calcularSalarioFijo = new CalcularSalarioFijo(empleadoFijoCuatro);
         expect(calcularSalarioFijo.calcularSalarioFijo()).equal(6000);
     });
 

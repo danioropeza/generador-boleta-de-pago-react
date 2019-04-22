@@ -10,8 +10,5 @@ class DatosBoletaDePago {
         this.fecha_pago = String(new Date()).slice(0, 15);
         this.salario = this.calcular_salario();        
     }
-    get monto() {
-        return this.salario;
-    }
 }
 module.exports = { DatosBoletaDePago };

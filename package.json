@@ -6,8 +6,7 @@
   "nyc": {
     "all": true,
     "include": [
-      "src/logica/**",
-      "src/servidor/**"
+      "src/logica/**"
     ]
   },
   "dependencies": {
