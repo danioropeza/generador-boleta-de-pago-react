@@ -14,6 +14,8 @@ class Empleado {
         this.tarjetaAsistencia = new TarjetaAsistencia();
         this.tarjetaVentas = new TarjetaVentas();
         this.metodoDePago = null;
+        this.metodosDeNotificacion = null;
+
     }
     agregarTarjetaAsistencia(tarjetaAsistencia){
         this.tarjetaAsistencia = tarjetaAsistencia;
@@ -23,6 +25,9 @@ class Empleado {
     }
     elegirMetodoDePago(metodoDePago){
         this.metodoDePago = metodoDePago;
+    }
+    elegirMetodoDeNotificacion(metodoNotificacion){
+        this.metodoNotificacion = metodoNotificacion;
     }
 }
 module.exports = { Empleado };
