@@ -1,20 +1,20 @@
 class AsistenciaDia {
-    constructor(hora_ingreso, hora_salida, fecha) {
-        this.hora_ingreso = hora_ingreso;
-        this.hora_salida = hora_salida;
+    constructor(horaDeIngreso, horaDeSalida, fecha) {
+        this.horaDeIngreso = horaDeIngreso;
+        this.horaDeSalida = horaDeSalida;
         this.fecha = fecha;
     }
     calcularHoras(){
-        let horas_trabajadas = this.hora_salida-this.hora_ingreso;
-        if(this.sonMasDeOchoHoras(horas_trabajadas))
-            horas_trabajadas = horas_trabajadas + this.calcularHorasExtra(horas_trabajadas);
-        return horas_trabajadas;
+        let horasTrabajadas = this.horaDeSalida-this.horaDeIngreso;
+        if(this.sonMasDeOchoHoras(horasTrabajadas))
+            horasTrabajadas = horasTrabajadas + this.calcularHorasExtra(horasTrabajadas);
+        return horasTrabajadas;
     }
-    sonMasDeOchoHoras(horas_trabajadas){
-        return horas_trabajadas>8;
+    sonMasDeOchoHoras(horasTrabajadas){
+        return horasTrabajadas>8;
     }
-    calcularHorasExtra(horas_trabajadas){
-        return (horas_trabajadas-8)*0.5;
+    calcularHorasExtra(horasTrabajadas){
+        return (horasTrabajadas-8)*0.5;
     }
 }
 module.exports = { AsistenciaDia };

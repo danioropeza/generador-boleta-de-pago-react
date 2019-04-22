@@ -1,13 +1,13 @@
-var funciones_fecha = {
+var funcionesFecha = {
     contarDiasHabilesDeUnMesDesde(dia, fecha) {
-        let cantidad_dias = this.calcularDiasDeUnMes(fecha.getMonth(), fecha.getFullYear());
-        let cantidad_dias_habiles = 0;
-        for (let i = dia; i <= cantidad_dias; i++) {
+        let cantidadDias = this.calcularDiasDeUnMes(fecha.getMonth(), fecha.getFullYear());
+        let cantidadDiasHabiles = 0;
+        for (let i = dia; i <= cantidadDias; i++) {
             if (!this.esDiaNoHabil(new Date(fecha.getFullYear(), fecha.getMonth(), i))) {
-                cantidad_dias_habiles++;
+                cantidadDiasHabiles++;
             }
         }
-        return cantidad_dias_habiles;
+        return cantidadDiasHabiles;
     },
 
     esSabado(fecha) {
@@ -31,8 +31,8 @@ var funciones_fecha = {
         return new Date(anio, mes + 1, 0).getDate();
     },
 
-    calcularUltimoDiaHabilDelMes(fecha_actual) {
-        let ultimoDia = new Date(fecha_actual.getFullYear(), fecha_actual.getMonth() + 1, 0);
+    calcularUltimoDiaHabilDelMes(fechaActual) {
+        let ultimoDia = new Date(fechaActual.getFullYear(), fechaActual.getMonth() + 1, 0);
         if (this.esSabado(ultimoDia))
             return ultimoDia.getDate() - 1;
         if (this.esDomingo(ultimoDia))
@@ -40,15 +40,12 @@ var funciones_fecha = {
         return ultimoDia.getDate();
     }
 }
-module.exports=funciones_fecha;
+module.exports=funcionesFecha;
 
 Date.prototype.getWeek = function() {
     var date = new Date(this.getTime());
     date.setHours(0, 0, 0, 0);
-    // Thursday in current week decides the year.
     date.setDate(date.getDate() + 3 - (date.getDay() + 6) % 7);
-    // January 4 is always in week 1.
     var week1 = new Date(date.getFullYear(), 0, 4);
-    // Adjust to Thursday in week 1 and count number of weeks from date to week1.
-    return 1 + Math.round(((date.getTime() - week1.getTime()) / 86400000        - 3 + (week1.getDay() + 6) % 7) / 7);
+    return 1 + Math.round(((date.getTime() - week1.getTime()) / 86400000 - 3 + (week1.getDay() + 6) % 7) / 7);
 };
