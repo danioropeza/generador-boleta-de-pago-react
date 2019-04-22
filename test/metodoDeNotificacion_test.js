@@ -1,46 +1,22 @@
 var expect = require('chai').expect;
 
-const Empleado = require ('../src/logica/Empleado').Empleado;
-const PagoEnDeposito = require ('../src/logica/MetodosDePago/PagoEnDeposito').PagoEnDeposito;
-const PagoEnEfectivo = require ('../src/logica/MetodosDePago/PagoEnEfectivo').PagoEnEfectivo;
-const PagoEnCheque = require ('../src/logica/MetodosDePago/PagoEnCheque').PagoEnCheque;
+const MetodoDeNotificacionWhatsapp = require ('../src/logica/MetodosDeNotificacion/MetodoDeNotificacionWhatsapp').MetodoDeNotificacionWhatsapp;
+const MetodoDeNotificacionFacebook = require ('../src/logica/MetodosDeNotificacion/MetodoDeNotificacionFacebook').MetodoDeNotificacionFacebook;
+const MetodoDeNotificacionEmail = require ('../src/logica/MetodosDeNotificacion/MetodoDeNotificacionEmail').MetodoDeNotificacionEmail;
 
 describe('Pruebas para metodos de notificacion', function() {
-    let empleado = new Empleado({
-        nombre: "Adrian Vargas",
-        ci: "7711450",
-        salario: 6000,
-        fechaNacimiento: "tue mar 28 2009",
-    });
-    let empleadoUno = new Empleado({
-        nombre: " Vargas",
-        ci: "7711450",
-        salario: 6000,
-        fechaNacimiento: "tue mar 28 2009",
-    });
-    let empleadoDos = new Empleado({
-        nombre: "Adrian ",
-        ci: "7711450",
-        salario: 6000,
-        fechaNacimiento: "tue mar 28 2009",
-    });
-    it('Deberia devolver el metodo de pago en efectivo', function() {
-        let efectivo = new PagoEnEfectivo({nombrePortador:empleado.nombre,ciPortador:empleado.ci,monto:empleado.salario, tipoDePago:"Efectivo"});
-        empleado.elegirMetodoDePago(efectivo);
-        expect(empleado.metodoDePago.tipoDePago).equal("Efectivo");
-
-    });
-    it('Deberia devolver el metodo de pago en cheque', function() {
-        let cheque = new PagoEnCheque({nombrePortador:empleadoUno.nombre,ciPortador:empleadoUno.ci,monto:empleadoUno.salario, tipoDePago:"Cheque"});
-        empleadoUno.elegirMetodoDePago(cheque);
-        expect(empleadoUno.metodoDePago.tipoDePago).equal("Cheque");
-
-    });
-    it('Deberia devolver el metodo de pago en deposito', function() {
-        let deposito = new PagoEnDeposito({nombrePortador:empleadoDos.nombre,ciPortador:empleadoDos.ci,monto:empleadoDos.salario, tipoDePago:"Deposito"});
-        empleadoDos.elegirMetodoDePago(deposito);
-        expect(empleadoDos.metodoDePago.tipoDePago).equal("Deposito");
-
+    it('Deberia enviar una notificacion por Whatsapp', function() {
+        let metodoDeNotificacionPorWhatsapp = new MetodoDeNotificacionWhatsapp("hola mundo", "75985489");
+        expect(metodoDeNotificacionPorWhatsapp.enviar()).equal("Se envio una notificacion por Whatsapp al 75985489 con el siguiente mensaje -> hola mundo");
     });
 
+    it('Deberia enviar una notificacion por Facebook', function() {
+        let metodoDeNotificacionPorFacebook = new MetodoDeNotificacionFacebook("hola mundo", "Julia Valentina Gutierrez");
+        expect(metodoDeNotificacionPorFacebook.enviar()).equal("Se envio una notificacion por Facebook a Julia Valentina Gutierrez con el siguiente mensaje -> hola mundo");
+    });
+
+    it('Deberia enviar una notificacion por Email', function() {
+        let metodoDeNotificacionPorEmail = new MetodoDeNotificacionEmail("hola mundo", "dany.orop@gmail.com");
+        expect(metodoDeNotificacionPorEmail.enviar()).equal("Se envio una notificacion por Email al dany.orop@gmail.com con el siguiente mensaje -> hola mundo");
+    });
 });
