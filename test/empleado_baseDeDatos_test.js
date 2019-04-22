@@ -20,6 +20,12 @@ describe("Pruebas para la conexion de la base de datos y empleado", function () 
             coleccionEmpleado.insertMany(empleado, function (error, resultado) {
                 let empleadoObtenido = resultado.ops[0];
                 expect(empleado.nombre).eq(empleadoObtenido.nombre);
+                expect(empleado.ci).eq(empleadoObtenido.ci);
+                expect(empleado.salario).eq(empleadoObtenido.salario);
+                expect(empleado.fecha_nacimiento).eq(empleadoObtenido.fecha_nacimiento);
+                expect(empleado.fecha_inicio).eq(empleadoObtenido.fecha_inicio);
+                expect(empleado.tipo).eq(empleadoObtenido.tipo);
+                expect(empleado.metodo_pago).eq(empleadoObtenido.metodo_pago);
                 done();
             });
             baseDeDatos.close();
@@ -34,7 +40,13 @@ describe("Pruebas para la conexion de la base de datos y empleado", function () 
                 let empleadoObtenido = resultadoInsert.ops[0];
                 coleccionEmpleado.find({ ci: empleadoObtenido.ci }).toArray(function (err, resultadoFind) {
                     let empleadoEncontrado = resultadoFind[0];
-                    expect(empleado.nombre).eq(empleadoEncontrado.nombre);
+                    expect(empleado.nombre).eq(empleadoObtenido.nombre);
+                    expect(empleado.ci).eq(empleadoObtenido.ci);
+                    expect(empleado.salario).eq(empleadoObtenido.salario);
+                    expect(empleado.fecha_nacimiento).eq(empleadoObtenido.fecha_nacimiento);
+                    expect(empleado.fecha_inicio).eq(empleadoObtenido.fecha_inicio);
+                    expect(empleado.tipo).eq(empleadoObtenido.tipo);
+                    expect(empleado.metodo_pago).eq(empleadoObtenido.metodo_pago);
                     done();
                 });
 
@@ -53,9 +65,13 @@ describe("Pruebas para la conexion de la base de datos y empleado", function () 
                         function (err, resultadoUpdate) {
                             coleccionEmpleado.find({ ci: empleadoObtenido.ci }).toArray(function (err, resultadoFind) {
                                 let empleadoEncontrado = resultadoFind[0];
-                                expect(empleado.nombre).eq(empleadoEncontrado.nombre);
-                                expect(empleado.ci).eq(empleadoEncontrado.ci);
+                                expect(empleado.nombre).eq(empleadoObtenido.nombre);
+                                expect(empleado.ci).eq(empleadoObtenido.ci);
+                                expect(empleado.salario).eq(empleadoObtenido.salario);
+                                expect(empleado.fecha_nacimiento).eq(empleadoObtenido.fecha_nacimiento);
+                                expect(empleado.fecha_inicio).eq(empleadoObtenido.fecha_inicio);
                                 expect("Comision").eq(empleadoEncontrado.tipo);
+                                expect(empleado.metodo_pago).eq(empleadoObtenido.metodo_pago);
                                 done();
                             });
                         });
