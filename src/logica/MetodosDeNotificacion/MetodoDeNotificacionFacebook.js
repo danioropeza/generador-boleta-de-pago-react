@@ -1,7 +1,7 @@
-const MetodoDeNotificacion = require("./MetodoDeNotificacion").MetodoDeNotificacion;
-class MetodoDeNotificacionFacebook  extends MetodoDeNotificacion{
+class MetodoDeNotificacionFacebook{
     constructor(mensaje, medio) {
-        super(mensaje, medio);
+        this.mensaje = mensaje;
+        this.medio = medio;
     }
     enviar(){
         return "Se envio una notificacion por Facebook a " + 

@@ -1,4 +1,3 @@
-const MetodoDeNotificacion = require("./MetodoDeNotificacion").MetodoDeNotificacion;
 class MetodoDeNotificacionWhatsapp{
     constructor(mensaje, medio) {
         this.mensaje = mensaje;
