@@ -13,7 +13,7 @@ class Empleado {
         this.comision = empleado.comision;
         this.tarjeta_asistencia = new TarjetaAsistencia();
         this.tarjeta_ventas = new TarjetaVentas();
-        this.metodo_pago=null;
+        this.metodo_pago = null;
     }
     agregarTarjetaAsistencia(tarjeta_asistencia){
         this.tarjeta_asistencia=tarjeta_asistencia;
