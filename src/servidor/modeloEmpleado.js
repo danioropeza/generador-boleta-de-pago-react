@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var esquemaEmpleado = mongoose.Schema({
+var empleadoEsquema = mongoose.Schema({
     nombre: {
         type: String,
         required: true
@@ -12,10 +12,7 @@ var esquemaEmpleado = mongoose.Schema({
         type: String,
         required: true
     },
-    fechaNacimiento: {
-        type: String,
-        required: true
-    },
+    fechaNacimiento: String,
     fechaInicio: {
         type: String,
         required: true
@@ -28,10 +25,12 @@ var esquemaEmpleado = mongoose.Schema({
         type: String,
         required: true
     },
-    
+    create_date: {
+        type: Date,
+        default: Date.now
+    }
 });
-// Export Contact model
-var Empleado = module.exports = mongoose.model('empleado', esquemaEmpleado);
+var Empleado = module.exports = mongoose.model('empleado', empleadoEsquema);
 module.exports.get = function (llamada, limite) {
     Empleado.find(llamada).limit(limite);
 }

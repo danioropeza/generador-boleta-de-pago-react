@@ -1,20 +1,17 @@
-
 let ruteador = require('express').Router();
 ruteador.get('/', function (solicitud, respuesta) {
     respuesta.json({
-        estado: 'API esta funcionando',
+        estado: 'Api funcionando',
         mensaje: 'Bienvenido',
     });
 });
-// Import contact controller
-var ControladorDeEmpleado = require('./ControladorDeEmpleado');
-// Contact routes
+var controladorDeEmpleado = require('./controladorDeEmpleado');
 ruteador.route('/empleados')
-        .get(ControladorDeEmpleado.indice)
-        .post(ControladorDeEmpleado.nuevo);
+        .get(controladorDeEmpleado.indice)
+        .post(controladorDeEmpleado.nuevo);
 ruteador.route('/empleados/:empleado_id')
-        .get(ControladorDeEmpleado.vista)
-        .patch(ControladorDeEmpleado.actualizacion)
-        .put(ControladorDeEmpleado.actualizacion)
-        .delete(ControladorDeEmpleado.borrar);
+        .get(controladorDeEmpleado.vista)
+        .patch(controladorDeEmpleado.actualizacion)
+        .put(controladorDeEmpleado.actualizacion)
+        .delete(controladorDeEmpleado.borrar);
 module.exports = ruteador;
