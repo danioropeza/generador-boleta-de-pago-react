@@ -16,24 +16,44 @@ describe('Pruebas para metodos de notificacion', function() {
             salario: 6000,
             fechaNacimiento: "tue mar 28 2009",
         });
-        let metodoDeNotificacionPorWhatsapp = new MetodoDeNotificacionWhatsapp("hola mundo", "75985489");
-
+        let metodoDeNotificacionPorWhatsapp = new MetodoDeNotificacionWhatsapp( );
+        let contenido = {
+            destinatario: "75985489",
+            mensaje: "hola mundo",
+        }
         empleado.elegirMetodoDeNotificacion(metodoDeNotificacionPorWhatsapp);
-        expect(empleado.metodoNotificacion.enviar()).equal("Se envio una notificacion por Whatsapp al 75985489 con el siguiente mensaje -> hola mundo");
+        expect(empleado.metodoNotificacion.enviar(contenido)).equal("Se envio una notificacion por Whatsapp al 75985489 con el siguiente mensaje -> hola mundo");
 
     });
     it('Deberia enviar una notificacion por Whatsapp', function() {
-        let metodoDeNotificacionPorWhatsapp = new MetodoDeNotificacionWhatsapp("hola mundo", "75985489");
-        expect(metodoDeNotificacionPorWhatsapp.enviar()).equal("Se envio una notificacion por Whatsapp al 75985489 con el siguiente mensaje -> hola mundo");
+        let metodoDeNotificacionPorWhatsapp = new MetodoDeNotificacionWhatsapp( );
+        let contenido = {
+            destinatario: "75985489",
+            mensaje: "hola mundo",
+        }
+        expect(metodoDeNotificacionPorWhatsapp.enviar(contenido)).equal("Se envio una notificacion por Whatsapp al 75985489 con el siguiente mensaje -> hola mundo");
     });
 
     it('Deberia enviar una notificacion por Facebook', function() {
-        let metodoDeNotificacionPorFacebook = new MetodoDeNotificacionFacebook("hola mundo", "Julia Valentina Gutierrez");
-        expect(metodoDeNotificacionPorFacebook.enviar()).equal("Se envio una notificacion por Facebook a Julia Valentina Gutierrez con el siguiente mensaje -> hola mundo");
+        let metodoDeNotificacionPorFacebook = new MetodoDeNotificacionFacebook();
+        let contenido = {
+            destinatario: "Julia Valentina Gutierrez",
+            mensaje: "hola mundo",
+        }
+        expect(metodoDeNotificacionPorFacebook.enviar(contenido)).equal("Se envio una notificacion por Facebook a Julia Valentina Gutierrez con el siguiente mensaje -> hola mundo");
     });
 
-    it('Deberia enviar una notificacion por Email', function() {
-        let metodoDeNotificacionPorEmail = new MetodoDeNotificacionEmail("hola mundo", "dany.orop@gmail.com");
-        expect(metodoDeNotificacionPorEmail.enviar()).equal("Se envio una notificacion por Email al dany.orop@gmail.com con el siguiente mensaje -> hola mundo");
+    it("Deberia poder enviar una notificación de email a un correo dado", function (done) {
+        let metodoDeNotificacionPorEmail = new MetodoDeNotificacionEmail();
+        let contenido = {
+            destinatario: "valita129@gmail.com",
+            asunto: "Pruebas correo",
+            mensaje: "hola mundo",
+        }
+        metodoDeNotificacionPorEmail.enviar(contenido, function (error, informacion) {
+            expect(informacion.response).to.have.string("250 2.0.0 OK");
+            done();
+        });
     });
+
 });

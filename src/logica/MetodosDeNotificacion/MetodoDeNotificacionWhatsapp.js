@@ -3,9 +3,9 @@ class MetodoDeNotificacionWhatsapp{
         this.mensaje = mensaje;
         this.medio = medio;
     }
-    enviar(){
-        return "Se envio una notificacion por Whatsapp al " + 
-                this.medio + " con el siguiente mensaje -> " + this.mensaje;
+    enviar(contenido){
+        return "Se envio una notificacion por Whatsapp al " +
+            contenido.destinatario + " con el siguiente mensaje -> " + contenido.mensaje;
     }
 }
 

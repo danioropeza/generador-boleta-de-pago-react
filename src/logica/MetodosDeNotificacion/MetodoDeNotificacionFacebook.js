@@ -1,11 +1,10 @@
 class MetodoDeNotificacionFacebook{
-    constructor(mensaje, medio) {
-        this.mensaje = mensaje;
-        this.medio = medio;
+    constructor() {
+        this.medio = "Facebook";
     }
-    enviar(){
+    enviar(contenido){
         return "Se envio una notificacion por Facebook a " + 
-                this.medio + " con el siguiente mensaje -> " + this.mensaje;
+                contenido.destinatario + " con el siguiente mensaje -> " + contenido.mensaje;
     }
 
 }

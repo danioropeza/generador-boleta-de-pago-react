@@ -1,11 +1,26 @@
+var nodemailer = require('nodemailer');
 class MetodoDeNotificacionEmail {
-    constructor(mensaje, medio) {
-        this.mensaje = mensaje;
-        this.medio = medio;
+    constructor() {
+        this.medio="Email";
+        this.remitente ='arquipruebas86@gmail.com';
+         this.transportador = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: this.remitente,
+                pass: 'arquitectura86'
+            }
+
+        });
+
     }
-    enviar(){
-        return "Se envio una notificacion por Email al " + 
-                this.medio + " con el siguiente mensaje -> " + this.mensaje;
+    enviar(contenidoCorreo,callback){
+        var opcionesDeCorreo = {
+            from: this.remitente,
+            to: contenidoCorreo.destinatario,
+            subject: contenidoCorreo.asunto,
+            text: contenidoCorreo.mensaje
+        };
+        this.transportador.sendMail(opcionesDeCorreo, callback);
     }
 }
 module.exports = { MetodoDeNotificacionEmail };
