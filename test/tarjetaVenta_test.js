@@ -1,21 +1,9 @@
-var expect = require("chai").expect;
+var expect = require('chai').expect
+var TarjetaVenta = require('../src/tarjetas/TarjetaVenta').TarjetaVenta;
 
-const TarjetaVentas= require("../src/logica/TarjetaVentas").TarjetaVentas;
-const Venta= require("../src/logica/Venta").Venta;
-
-
-describe("Pruebas para tarjeta Venta", function() {
-
-    it("deberia obtener como salario 0 para un empleado que no tiene ni una tarjeta de venta", function() {
-        let tarjetaVentas= new TarjetaVentas();
-
-        expect(tarjetaVentas.calcularComisionTotal()).equal(0);
-    });
-
-    it("deberia obtener como salario 650 para un empleado  tiene una tarjeta de venta con monto de 650", function() {
-        let venta = new Venta(6250,"Venta 1", 'tue mar 21 2009');
-        let tarjetaVentas= new TarjetaVentas();
-        tarjetaVentas.agregarVenta(venta);
-        expect(tarjetaVentas.calcularComisionTotal()).equal(625);
+describe('',function(){
+    it('calcular monto vendido de una Tarjeta de venta', function () {
+        let tarjetaVenta = new TarjetaVenta(600, "2018-03-22");
+        expect(tarjetaVenta.obtenerMontoVendido()).equal(600);
     });
 });
