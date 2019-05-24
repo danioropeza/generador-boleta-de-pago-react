@@ -140,7 +140,7 @@ class FormularioEmpleado extends React.Component{
                     <label>Metodos de notificacion</label>
                     <Form.Field label='Facebook' control='input' type='checkbox' />
                     <Form.Field label='Whatsapp' control='input' type='checkbox' />
-                    <Form.Field label='Email' control='input' type='checkbox' />
+                    <Form.Field label='Email' control='input' type='npm checkbox' />
                 </Form.Group>
                 {this.state.data.tipo==="parcial"? campoHoras: ""} 
                 {this.state.data.tipo==="comision"? campoComision: ""} 
