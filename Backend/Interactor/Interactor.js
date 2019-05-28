@@ -21,15 +21,6 @@ class Interactor {
         this.datosEmpleado = datosEmpleado;
         this.listaDeEmpleados = [];
     }
-    generarBoletasDePagoParaTodosLosEmpleados()
-    {
-        for (let empleado of this.empleados) {
-            let boletaDePago = new BoletaDePago();
-            boletaDePago = boletaDePago.generarBoleta(empleado);
-            this.boletasGeneradas.push(boletaDePago);
-        }
-
-    }
     crearEmpleadoNuevo()
     {
         var calculadora, clasificador;
@@ -63,13 +54,6 @@ class Interactor {
         //console.log(empleado)
         this.repositorio.insertarEmpleado(empleado);
     }
-    verDatosEmpleado(ci){
-
-    }
-    actualizarEmpleado(empleado, datosNuevoEmpleado){
-        this.repositorio.actualizarEmpleado(empleado, datosNuevoEmpleado);
-    }
-
 }
 
 module.exports = { Interactor }

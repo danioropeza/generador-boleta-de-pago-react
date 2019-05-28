@@ -7,6 +7,7 @@ var ClasificadorFechaDePagoFijo = require("../calculadoraFechaDePago/Clasificado
 var InterfazRepositorioEmpleado = require("../db/InterfazRepositorioEmpleado").InterfazRepositorioEmpleado;
 var PersistenciaEmpleadoMongoDB = require("../db/PersistenciaEmpleadoMongoDB").PersistenciaEmpleadoMongoDB;
 var Interactor = require("../Interactor/Interactor").Interactor;
+var PeticionModeloEmpleado = require("../peticionModelos/PeticionModeloEmpleado").PeticionModeloEmpleado;
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -35,18 +36,7 @@ app.get('/empleados',function(request,response){
 });
 
 app.post('/empleado/nuevo',function(request,res){
-    const requestModelUser = {
-        nombre: request.body.nombre,
-        ci: request.body.ci,
-        salario: "8000",
-        montoPorHora: "10",
-        comision: "120",
-        metodoDePago: "cheque",
-        metodosDeNotificacion: ["Whatsapp"],
-        salarioBase: "2000",
-        tipo: "Fijo",
-        fechaInicioLaboral: "21/02/2019"
-    }
+    const requestModelUser = PeticionModeloEmpleado(request.body);
     const repositorio = new InterfazRepositorioEmpleado(new PersistenciaEmpleadoMongoDB());
     const interactor = new Interactor(repositorio, requestModelUser);
     interactor.crearEmpleadoNuevo();

@@ -67,7 +67,6 @@ class PersistenciaEmpleadoMongoDB {
       baseDeDatos.close();
     });
   }
-  
 }
 module.exports = { PersistenciaEmpleadoMongoDB };
 
