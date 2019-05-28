@@ -8,11 +8,11 @@ class PersistenciaEmpleadoMongoDB {
   }
   realizarConexion(empleado, servicio, nuevosValores) {
     this.baseDeDatos.connect(this.empleadoRepository.url, (err, baseDeDatos) => { 
-      baseDeDatos = this.configurarBaseDeDatos(err, baseDeDatos);
+        baseDeDatos = this.configurarBaseDeDatos(err, baseDeDatos);
          servicio(baseDeDatos, empleado, nuevosValores);
       });
   }
-  configurarBaseDeDatos(baseDeDatos) {
+  configurarBaseDeDatos(err, baseDeDatos) {
     return baseDeDatos.db("BoletasDePago").collection("empleado");
   }
   insertarEmpleado(empleado) {
@@ -32,10 +32,9 @@ class PersistenciaEmpleadoMongoDB {
   }
   insertOne(baseDeDatos, empleado) {
     baseDeDatos.insertOne(empleado, function (err, res) {
-      if (err) 
-        throw err;
       console.log("1 documento insertado");
-      baseDeDatos.close();
+      res = "1 documento insertado";
+      //baseDeDatos.close();
     });
   }
   find(baseDeDatos, empleado) {
@@ -49,8 +48,8 @@ class PersistenciaEmpleadoMongoDB {
   updateOne(baseDeDatos,empleado, nuevosValores) {
     baseDeDatos.updateOne({_id: empleado._id},{$set:nuevosValores} , function (err, res) {
       if (err) throw err;
-      console.log("1 empleado actualizado");
       baseDeDatos.close();
+      return "1 empleado actualizado";
     });
   }
   deleteOne(baseDeDatos, empleado) {

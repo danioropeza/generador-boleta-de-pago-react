@@ -3,16 +3,22 @@ var Empleado = require("../empleado/Empleado.js").Empleado;
 var AsistenciaPorDia = require("../tarjetas/AsistenciaPorDia").AsistenciaPorDia;
 var TarjetaAsistencia = require("../tarjetas/TarjetaAsistencia").TarjetaAsistencia;
 var CalculadoraPorHora = require("../calculadoraSalario/CalculadoraPorHora").CalculadoraPorHora;
-var ClasificadorDeFechaDePagoFijo = require("../calculadoraFechaDePago/ClasificadorFechaDePagoFijo").ClasificadorDeFechaDePagoFijo;
-var ClasificadorDeFechaDePagoPorHora = require("../calculadoraFechaDePago/ClasificadorFechaDePagoPorHora").ClasificadorDeFechaDePagoPorHora;
-var ClasificadorDeFechaDePagoPorComision = require("../calculadoraFechaDePago/ClasificadorFechaDePagoPorComision").ClasificadorDeFechaDePagoPorComision;
+var ClasificadorFechaDePagoFijo = require("../calculadoraFechaDePago/ClasificadorFechaDePagoFijo").ClasificadorFechaDePagoFijo;
+var ClasificadorFechaDePagoPorHora = require("../calculadoraFechaDePago/ClasificadorFechaDePagoPorHora").ClasificadorFechaDePagoPorHora;
+var ClasificadorFechaDePagoPorComision = require("../calculadoraFechaDePago/ClasificadorFechaDePagoPorComision").ClasificadorFechaDePagoPorComision;
 var MetodoDePago = require("../metodoDePago/MetodoDePago").MetodoDePago;
 var TarjetaVenta = require("../tarjetas/TarjetaVenta").TarjetaVenta;
 var Facebook = require("../notificaciones/Facebook").Facebook;
+var Whatsapp = require("../notificaciones/Whatsapp").Whatsapp;
+var Email = require("../notificaciones/Email").Email;
+var CalculadoraPorFijo = require("../calculadoraSalario/CalculadoraPorFijo").CalculadoraPorFijo;
+var CalculadoraPorHora = require("../calculadoraSalario/CalculadoraPorHora").CalculadoraPorHora;
+var CalculadoraPorComision = require("../calculadoraSalario/CalculadoraPorComision").CalculadoraPorComision;
 
 class Interactor {
-    constructor(repositorio) {
+    constructor(repositorio, datosEmpleado) {
         this.repositorio = repositorio;
+        this.datosEmpleado = datosEmpleado;
         this.listaDeEmpleados = [];
     }
     generarBoletasDePagoParaTodosLosEmpleados()
@@ -24,28 +30,28 @@ class Interactor {
         }
 
     }
-    crearEmpleadoNuevo(datosEmpleado)
+    crearEmpleadoNuevo()
     {
         var calculadora, clasificador;
-        if(datosEmpleado.tipo == 'Fijo') {
-            calculadora = new CalculadoraPorFijo(datosEmpleado.salario,datosEmpleado.fechaIncioLaboral);
-            clasificador = new ClasificadorDeFechaDePagoPorFijo();
+        if(this.datosEmpleado.tipo == 'Fijo') {
+            calculadora = new CalculadoraPorFijo(this.datosEmpleado.salario,this.datosEmpleado.fechaInicioLaboral);
+            clasificador = new ClasificadorFechaDePagoFijo();
         }
-        if(datosEmpleado.tipo == 'Parcial') {
+        if(this.datosEmpleado.tipo == 'Parcial') {
             var tarjetaAsistencia = new TarjetaAsistencia();
-            calculadora = new CalculadoraPorHora(datosEmpleado.montoPorHora, tarjetaAsistencia);
-            clasificador= new ClasificadorDeFechaDePagoPorHora();
+            calculadora = new CalculadoraPorHora(this.datosEmpleado.montoPorHora, tarjetaAsistencia);
+            clasificador= new ClasificadorFechaDePagoPorHora();
         }
-        if(datosEmpleado.tipo == 'Comision') {
+        if(this.datosEmpleado.tipo == 'Comision') {
             var tarjetaVenta = new TarjetaVenta();
-            calculadora = new CalculadoraPorComison(datosEmpleado.salarioBase,datosEmpleado.comision, tarjetaVenta);
-            clasificador= new ClasificadorDeFechaDePagoPorComision();
+            calculadora = new CalculadoraPorComision(this.datosEmpleado.salarioBase,this.datosEmpleado.comision, tarjetaVenta);
+            clasificador= new ClasificadorFechaDePagoPorComision();
         }
 
-        let metodoDePago = new MetodoDePago(datosEmpleado.metodoDePago);
+        let metodoDePago = new MetodoDePago(this.datosEmpleado.metodoDePago);
 
-        let empleado = new Empleado(datosEmpleado.nombre, datosEmpleado.ci, calculadora, clasificador, metodoDePago);
-        datosEmpleado.metodosDeNotificacion.forEach(metodoNotificacion, () => {
+        let empleado = new Empleado(this.datosEmpleado.nombre, this.datosEmpleado.ci, calculadora, clasificador, metodoDePago);
+        this.datosEmpleado.metodosDeNotificacion.forEach((metodoNotificacion) => {
             if(metodoNotificacion =='Facebook')
                 empleado = new Facebook(empleado);
             if(metodoNotificacion =='Whatsapp')
@@ -54,7 +60,7 @@ class Interactor {
                 empleado = new Email(empleado);
 
         });
-
+        //console.log(empleado)
         this.repositorio.insertarEmpleado(empleado);
     }
     verDatosEmpleado(ci){
