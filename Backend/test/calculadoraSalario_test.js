@@ -1,11 +1,11 @@
 var expect = require('chai').expect
 
-var CalculadoraPorFijo = require('../src/calculadoraSalario/CalculadoraPorFijo').CalculadoraPorFijo;
-var CalculadoraPorHora = require('../src/calculadoraSalario/CalculadoraPorHora').CalculadoraPorHora;
-var CalculadoraPorComision = require('../src/calculadoraSalario/CalculadoraPorComision').CalculadoraPorComision;
-var AsistenciaPorDia = require('../src/tarjetas/AsistenciaPorDia').AsistenciaPorDia;
-var TarjetaAsistencia = require('../src/tarjetas/TarjetaAsistencia').TarjetaAsistencia;
-var TarjetaVenta = require('../src/tarjetas/TarjetaVenta').TarjetaVenta;
+var CalculadoraPorFijo = require('../calculadoraSalario/CalculadoraPorFijo').CalculadoraPorFijo;
+var CalculadoraPorHora = require('../calculadoraSalario/CalculadoraPorHora').CalculadoraPorHora;
+var CalculadoraPorComision = require('../calculadoraSalario/CalculadoraPorComision').CalculadoraPorComision;
+var AsistenciaPorDia = require('../tarjetas/AsistenciaPorDia').AsistenciaPorDia;
+var TarjetaAsistencia = require('../tarjetas/TarjetaAsistencia').TarjetaAsistencia;
+var TarjetaVenta = require('../tarjetas/TarjetaVenta').TarjetaVenta;
 let DiasTrabajados=[];
 describe('Calculadora de salario', function () {
 

@@ -1,15 +1,15 @@
 var expect = require('chai').expect;
 
-var Email = require('../src/notificaciones/Email').Email;
-var Facebook = require('../src/notificaciones/Facebook').Facebook;
-var Whatsapp = require('../src/notificaciones/Whatsapp').Whatsapp;
-var Empleado = require('../src/empleado/Empleado').Empleado;
-var ClasificadorFechaDePagoPorHora = require("../src/calculadoraFechaDePago/ClasificadorFechaDePagoPorHora").ClasificadorFechaDePagoPorHora;
+var Email = require('../notificaciones/Email').Email;
+var Facebook = require('../notificaciones/Facebook').Facebook;
+var Whatsapp = require('../notificaciones/Whatsapp').Whatsapp;
+var Empleado = require('../empleado/Empleado').Empleado;
+var ClasificadorFechaDePagoPorHora = require("../calculadoraFechaDePago/ClasificadorFechaDePagoPorHora").ClasificadorFechaDePagoPorHora;
 
-var CalculadoraPorHora = require("../src/calculadoraSalario/CalculadoraPorHora").CalculadoraPorHora;
-var AsistenciaPorDia = require("../src/tarjetas/AsistenciaPorDia").AsistenciaPorDia;
-var TarjetaAsistencia = require("../src/tarjetas/TarjetaAsistencia").TarjetaAsistencia;
-var MetodoDePago = require('../src/metodoDePago/MetodoDePago').MetodoDePago;
+var CalculadoraPorHora = require("../calculadoraSalario/CalculadoraPorHora").CalculadoraPorHora;
+var AsistenciaPorDia = require("../tarjetas/AsistenciaPorDia").AsistenciaPorDia;
+var TarjetaAsistencia = require("../tarjetas/TarjetaAsistencia").TarjetaAsistencia;
+var MetodoDePago = require('../metodoDePago/MetodoDePago').MetodoDePago;
 describe('notificaciones', function () {
 
     it('deberia devolver vacio cuando un empleado no agrego ningun medio de notificacion',  function () {

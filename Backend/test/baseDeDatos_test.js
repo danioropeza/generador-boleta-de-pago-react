@@ -1,12 +1,12 @@
 var expect = require('chai').expect;
-var PersistenciaEmpleadoMongoDB =  require('../src/db/PersistenciaEmpleadoMongoDB').PersistenciaEmpleadoMongoDB;
-var InterfazRepositorioEmpleado =  require('../src/db/InterfazRepositorioEmpleado').InterfazRepositorioEmpleado;
+var PersistenciaEmpleadoMongoDB =  require('../db/PersistenciaEmpleadoMongoDB').PersistenciaEmpleadoMongoDB;
+var InterfazRepositorioEmpleado =  require('../db/InterfazRepositorioEmpleado').InterfazRepositorioEmpleado;
 
-var Empleado =  require('../src/empleado/Empleado.js').Empleado;
-var CalculadoraPorHora =  require('../src/calculadoraSalario/CalculadoraPorHora').CalculadoraPorHora;
-var AsistenciaPorDia =  require('../src/tarjetas/AsistenciaPorDia').AsistenciaPorDia;
-var ClasificadorFechaDePagoFijo =  require('../src/calculadoraFechaDePago/ClasificadorFechaDePagoFijo').ClasificadorFechaDePagoFijo;
-var MetodoDePago =  require('../src/metodoDePago/MetodoDePago').MetodoDePago;
+var Empleado =  require('../empleado/Empleado.js').Empleado;
+var CalculadoraPorHora =  require('../calculadoraSalario/CalculadoraPorHora').CalculadoraPorHora;
+var AsistenciaPorDia =  require('../tarjetas/AsistenciaPorDia').AsistenciaPorDia;
+var ClasificadorFechaDePagoFijo =  require('../calculadoraFechaDePago/ClasificadorFechaDePagoFijo').ClasificadorFechaDePagoFijo;
+var MetodoDePago =  require('../metodoDePago/MetodoDePago').MetodoDePago;
 
 describe('Conexion de la base de datos', function () {
     it('Deberia insertar un empleado',  function () {

@@ -1,7 +1,7 @@
 var expect = require('chai').expect
-var ClasificadorFechaDePagoPorHora = require('../src/calculadoraFechaDePago/ClasificadorFechaDePagoPorHora').ClasificadorFechaDePagoPorHora;
-var ClasificadorFechaDePagoFijo = require('../src/calculadoraFechaDePago/ClasificadorFechaDePagoFijo').ClasificadorFechaDePagoFijo;
-var ClasificadorFechaDePagoPorComision = require('../src/calculadoraFechaDePago/ClasificadorFechaDePagoPorComision').ClasificadorFechaDePagoPorComision;
+var ClasificadorFechaDePagoPorHora = require('../calculadoraFechaDePago/ClasificadorFechaDePagoPorHora').ClasificadorFechaDePagoPorHora;
+var ClasificadorFechaDePagoFijo = require('../calculadoraFechaDePago/ClasificadorFechaDePagoFijo').ClasificadorFechaDePagoFijo;
+var ClasificadorFechaDePagoPorComision = require('../calculadoraFechaDePago/ClasificadorFechaDePagoPorComision').ClasificadorFechaDePagoPorComision;
 
 describe('CalculadoraFechaDePago', function () {
 it('recibe una fecha y devuelve la fecha del viernes para pagar a un empleado por hora', function () {

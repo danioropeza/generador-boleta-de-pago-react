@@ -8,7 +8,7 @@ class RegistroEmpleado extends React.Component {
     }
     submit = (data) => {
         console.log(data)
-        alert("se guardo el empleado correctamente!");
+        
     }
     volverAPaginaEmpleados() {
         this.props.history.goBack();

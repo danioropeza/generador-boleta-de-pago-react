@@ -1,5 +1,5 @@
 var expect = require('chai').expect
-const AsistenciaPorDia = require('../src/tarjetas/AsistenciaPorDia').AsistenciaPorDia;
+const AsistenciaPorDia = require('../tarjetas/AsistenciaPorDia').AsistenciaPorDia;
 
 describe('',function(){
     it('calcular cantidad de horas de trabajo de una Tarjeta de hora con menos de 8 horas trabajadas', function () {
