@@ -59,4 +59,4 @@ class CrearEmpleado {
     }
 }
 
-module.exports = { Interactor: CrearEmpleado }
+module.exports = { CrearEmpleado: CrearEmpleado }

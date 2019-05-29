@@ -1,12 +1,9 @@
 const express=require("express");
 const app=express();
 var  bodyParser = require("body-parser");
-var Empleado = require("../../ReglasDeNegocioEmpresa/Empleado/Empleado").Empleado;
-var CalculadoraPorFijo = require("../../ReglasDeNegocioEmpresa/Empleado/CalculadorasSalario/CalculadoraPorFijo").CalculadoraPorFijo;
-var ClasificadorFechaDePagoFijo = require("../../ReglasDeNegocioEmpresa/Empleado/ClasificadoresFechaDePago/ClasificadorFechaDePagoFijo").ClasificadorFechaDePagoFijo;
 var InterfazRepositorioEmpleado = require("../Almacenamiento/db/InterfazRepositorioEmpleado").InterfazRepositorioEmpleado;
 var PersistenciaEmpleadoMongoDB = require("../../FrameworksYDrivers/BaseDeDatos/Mongo/PersistenciaEmpleadoMongoDB").PersistenciaEmpleadoMongoDB;
-var Interactor = require("../../ReglasDeNegocioAplicacion/CasosDeUso/CrearEmpleado").Interactor;
+var CrearEmpleado = require("../../ReglasDeNegocioAplicacion/CasosDeUso/CrearEmpleado").CrearEmpleado;
 var PeticionModeloEmpleado = require("../ModeloDePeticion/ModeloDePeticionEmpleado").PeticionModeloEmpleado;
 
 app.use((req, res, next) => {
@@ -40,9 +37,9 @@ app.post('/Empleado/nuevo',function(request,res){
 
     //llevar a un metodo que se ejecute para todos...un mani 
     const repositorio = new InterfazRepositorioEmpleado(new PersistenciaEmpleadoMongoDB());
-    const interactor = new Interactor(repositorio, requestModelUser);
+    const crearEmpleado = new CrearEmpleado(repositorio, requestModelUser);
 
-    interactor.crearEmpleadoNuevo();
+    crearEmpleado.crearEmpleadoNuevo();
 }); 
 
 app.get('/Empleado/:ci',function(req,res){
