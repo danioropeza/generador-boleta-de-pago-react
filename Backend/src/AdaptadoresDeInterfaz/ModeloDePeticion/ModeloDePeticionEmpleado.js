@@ -1,4 +1,4 @@
-const PeticionModeloEmpleado = (requestBody) => {
+const ModeloDePeticionEmpleado = (requestBody) => {
     return ({
         "nombre": requestBody.nombre,
         "ci": requestBody.ci,
@@ -12,4 +12,4 @@ const PeticionModeloEmpleado = (requestBody) => {
         "fechaInicioLaboral": "21/02/2019",
     })
 }
-module.exports = { PeticionModeloEmpleado }
+module.exports = { PeticionModeloEmpleado: ModeloDePeticionEmpleado }

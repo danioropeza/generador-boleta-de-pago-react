@@ -1,6 +1,5 @@
-const funcionesFecha = require("../otros/FuncionesFecha");
+const funcionesFecha = require("../../FuncionesAuxiliares/FuncionesFecha");
 
-// name is a member of myModule due to the export above
 class CalculadoraPorFijo {
     constructor(salario,fechaInicioTrabajo){
         this.salario=salario;

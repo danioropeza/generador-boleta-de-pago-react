@@ -1,28 +1,28 @@
 var expect = require('chai').expect
 
-var CalculadoraPorFijo = require('../calculadoraSalario/CalculadoraPorFijo').CalculadoraPorFijo;
-var CalculadoraPorHora = require('../calculadoraSalario/CalculadoraPorHora').CalculadoraPorHora;
-var CalculadoraPorComision = require('../calculadoraSalario/CalculadoraPorComision').CalculadoraPorComision;
-var AsistenciaPorDia = require('../tarjetas/AsistenciaPorDia').AsistenciaPorDia;
-var TarjetaAsistencia = require('../tarjetas/TarjetaAsistencia').TarjetaAsistencia;
-var TarjetaVenta = require('../tarjetas/TarjetaVenta').TarjetaVenta;
+var CalculadoraPorFijo = require('../src/ReglasDeNegocioEmpresa/Empleado/CalculadorasSalario/CalculadoraPorFijo').CalculadoraPorFijo;
+var CalculadoraPorHora = require('../src/ReglasDeNegocioEmpresa/Empleado/CalculadorasSalario/CalculadoraPorHora').CalculadoraPorHora;
+var CalculadoraPorComision = require('../src/ReglasDeNegocioEmpresa/Empleado/CalculadorasSalario/CalculadoraPorComision').CalculadoraPorComision;
+var AsistenciaPorDia = require('../src/ReglasDeNegocioEmpresa/Empleado/CalculadorasSalario/Tarjetas/AsistenciaPorDia').AsistenciaPorDia;
+var TarjetaAsistencia = require('../src/ReglasDeNegocioEmpresa/Empleado/CalculadorasSalario/Tarjetas/TarjetaAsistencia').TarjetaAsistencia;
+var TarjetaVenta = require('../src/ReglasDeNegocioEmpresa/Empleado/CalculadorasSalario/Tarjetas/TarjetaVenta').TarjetaVenta;
 let DiasTrabajados=[];
 describe('Calculadora de salario', function () {
 
-    it('calcular salario para un empleado fijo que asistio un dia laboral del mes', function () {
+    it('calcular salario para un Empleado fijo que asistio un dia laboral del mes', function () {
         let fechaIncioLaboral = new Date(2019, 3, 2);
         let calculadora = new CalculadoraPorFijo(2000,fechaIncioLaboral);
         expect(calculadora.calcularSalario()).equal(2000);
     });
 
-    it('calcular salario para un empleado fijo que asistio 10 dias laborales del mes', function () {
+    it('calcular salario para un Empleado fijo que asistio 10 dias laborales del mes', function () {
         let fechaIncioLaboral = new Date(2019, 4, 20);
         let calculadora = new CalculadoraPorFijo(2300,fechaIncioLaboral);
         expect(calculadora.calcularSalario()).equal(1000);
     });
 
 
-    it('calcular el salario para un empleado por hora con 1 tarjeta de hora', function () {
+    it('calcular el salario para un Empleado por hora con 1 tarjeta de hora', function () {
         let asistencia1 = new AsistenciaPorDia("2019-03-22", "08:00:00", "12:00:00");
         let tarjetaAsistencia = new TarjetaAsistencia();
         tarjetaAsistencia.agregarAsistencia(asistencia1);
@@ -30,7 +30,7 @@ describe('Calculadora de salario', function () {
         expect(calculadora.calcularSalario()).equal(800);
     });
 
-    it('calcular el salario para un empleado por hora con mas de 1 tarjeta de hora', function () {
+    it('calcular el salario para un Empleado por hora con mas de 1 tarjeta de hora', function () {
         let asistencia1 = new AsistenciaPorDia("2019-03-22", "08:00:00", "12:00:00");
         let asistencia2 = new AsistenciaPorDia("2019-03-23", "08:00:00", "18:00:00");
         let asistencia3 = new AsistenciaPorDia("2019-03-24", "07:00:00", "19:00:00");
@@ -42,13 +42,13 @@ describe('Calculadora de salario', function () {
         expect(calculadora.calcularSalario()).equal(5800);
     });
     
-    it('calcular el salario para un empleado por comision con 10% de comision y 1 tarjeta de venta', function () {
+    it('calcular el salario para un Empleado por comision con 10% de comision y 1 tarjeta de venta', function () {
         let tarjetaVenta1 = new TarjetaVenta(500, "2019-03-22");
         let calculadora = new CalculadoraPorComision(1000, 0.10, [tarjetaVenta1]);
         expect(calculadora.calcularSalario()).equal(1050);
     });
     
-    it('calcular el salario para un empleado por comision con 10% de comision y mas de 1 tarjeta de venta', function () {
+    it('calcular el salario para un Empleado por comision con 10% de comision y mas de 1 tarjeta de venta', function () {
         let tarjetaVenta1 = new TarjetaVenta(500, "2019-03-22");
         let tarjetaVenta2 = new TarjetaVenta(900, "2019-03-23");
         let tarjetaVenta3 = new TarjetaVenta(300, "2019-03-23");

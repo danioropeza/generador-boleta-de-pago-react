@@ -1,21 +1,21 @@
 var expect = require('chai').expect;
 
-var Empleado = require('../empleado/Empleado.js').Empleado;
-var CalculadoraPorFijo = require('../calculadoraSalario/CalculadoraPorFijo').CalculadoraPorFijo;
-var CalculadoraPorHora = require('../calculadoraSalario/CalculadoraPorHora').CalculadoraPorHora;
-var CalculadoraPorComision = require('../calculadoraSalario/CalculadoraPorComision').CalculadoraPorComision;
-var AsistenciaPorDia = require('../tarjetas/AsistenciaPorDia').AsistenciaPorDia;
-var TarjetaVenta = require('../tarjetas/TarjetaVenta').TarjetaVenta;
-var TarjetaAsistencia = require('../tarjetas/TarjetaAsistencia').TarjetaAsistencia;
-var ClasificadorFechaDePagoPorHora = require('../calculadoraFechaDePago/ClasificadorFechaDePagoPorHora').ClasificadorFechaDePagoPorHora;
-var ClasificadorFechaDePagoFijo = require('../calculadoraFechaDePago/ClasificadorFechaDePagoFijo').ClasificadorFechaDePagoFijo;
-var ClasificadorFechaDePagoPorComision = require('../calculadoraFechaDePago/ClasificadorFechaDePagoPorComision').ClasificadorFechaDePagoPorComision;
-var MetodoDePago = require('../metodoDePago/MetodoDePago').MetodoDePago;
-var BoletaDePago = require('../boleta/boletaDePago').BoletaDePago;
+var Empleado = require('../src/ReglasDeNegocioEmpresa/Empleado/Empleado.js').Empleado;
+var CalculadoraPorFijo = require('../src/ReglasDeNegocioEmpresa/Empleado/CalculadorasSalario/CalculadoraPorFijo').CalculadoraPorFijo;
+var CalculadoraPorHora = require('../src/ReglasDeNegocioEmpresa/Empleado/CalculadorasSalario/CalculadoraPorHora').CalculadoraPorHora;
+var CalculadoraPorComision = require('../src/ReglasDeNegocioEmpresa/Empleado/CalculadorasSalario/CalculadoraPorComision').CalculadoraPorComision;
+var AsistenciaPorDia = require('../src/ReglasDeNegocioEmpresa/Empleado/CalculadorasSalario/Tarjetas/AsistenciaPorDia').AsistenciaPorDia;
+var TarjetaVenta = require('../src/ReglasDeNegocioEmpresa/Empleado/CalculadorasSalario/Tarjetas/TarjetaVenta').TarjetaVenta;
+var TarjetaAsistencia = require('../src/ReglasDeNegocioEmpresa/Empleado/CalculadorasSalario/Tarjetas/TarjetaAsistencia').TarjetaAsistencia;
+var ClasificadorFechaDePagoPorHora = require('../src/ReglasDeNegocioEmpresa/Empleado/ClasificadoresFechaDePago/ClasificadorFechaDePagoPorHora').ClasificadorFechaDePagoPorHora;
+var ClasificadorFechaDePagoFijo = require('../src/ReglasDeNegocioEmpresa/Empleado/ClasificadoresFechaDePago/ClasificadorFechaDePagoFijo').ClasificadorFechaDePagoFijo;
+var ClasificadorFechaDePagoPorComision = require('../src/ReglasDeNegocioEmpresa/Empleado/ClasificadoresFechaDePago/ClasificadorFechaDePagoPorComision').ClasificadorFechaDePagoPorComision;
+var MetodoDePago = require('../src/ReglasDeNegocioEmpresa/Empleado/MetodosPago/MetodoDePago').MetodoDePago;
+var BoletaDePago = require('../src/ReglasDeNegocioEmpresa/GeneradorBoletas/Boleta/boletaDePago').BoletaDePago;
 
 
-describe('boleta de pago',function(){
-    it('recibe un empleado fijo y genera su boleta de pago', function () {
+describe('Boleta de pago',function(){
+    it('recibe un Empleado fijo y genera su Boleta de pago', function () {
         let fechaIncioLaboral = new Date(2019, 3, 2);
         let calculadora = new CalculadoraPorFijo(1800,fechaIncioLaboral);
         let calculadoraDeFecha = new ClasificadorFechaDePagoFijo(fechaIncioLaboral);
@@ -35,7 +35,7 @@ describe('boleta de pago',function(){
     });
 
 
-    it('recibe un empleado por hora y genera su boleta de pago', function () {
+    it('recibe un Empleado por hora y genera su Boleta de pago', function () {
         let asistencia1 = new AsistenciaPorDia("2019-03-02", "08:00:00", "12:00:00");
         let tarjetaAsistencia = new TarjetaAsistencia();
         tarjetaAsistencia.agregarAsistencia(asistencia1);
@@ -58,7 +58,7 @@ describe('boleta de pago',function(){
         expect(boletaEsperada).equal(boletaResultante);
     });
 
-    it('recibe un empleado por comision y genera su boleta de pago', function () {
+    it('recibe un Empleado por comision y genera su Boleta de pago', function () {
         let tarjetaVenta = new TarjetaVenta(500, "2018-03-02");
         let calculadora = new CalculadoraPorComision(200, 0.05, [tarjetaVenta]);
 

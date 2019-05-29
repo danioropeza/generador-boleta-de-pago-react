@@ -1,6 +1,5 @@
 class BoletaDePago{
     constructor(){
-        
     }
    
     generarBoleta(empleado){

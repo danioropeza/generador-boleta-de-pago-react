@@ -49,13 +49,13 @@ class PersistenciaEmpleadoMongoDB {
     baseDeDatos.updateOne({_id: empleado._id},{$set:nuevosValores} , function (err, res) {
       if (err) throw err;
       baseDeDatos.close();
-      return "1 empleado actualizado";
+      return "1 Empleado actualizado";
     });
   }
   deleteOne(baseDeDatos, empleado) {
     baseDeDatos.deleteOne({_id: empleado._id}, function (err, obj) {
       if (err) throw err;
-      console.log("1 empleado eliminado");
+      console.log("1 Empleado eliminado");
       baseDeDatos.close();
     });
   }

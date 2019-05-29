@@ -1,4 +1,4 @@
-var BoletaDePago = require('../boleta/boletaDePago').BoletaDePago;
+var BoletaDePago = require('./Boleta/boletaDePago').BoletaDePago;
 class GeneradorBoletasDePago{
     constructor(empleados){
         this.empleados=empleados;

@@ -1,4 +1,4 @@
-const funcionesFecha = require("../otros/FuncionesFecha");
+const funcionesFecha = require("../../FuncionesAuxiliares/FuncionesFecha");
 
 class ClasificadorFechaDePagoPorComision {
     constructor(fecha) {
