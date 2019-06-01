@@ -1,4 +1,4 @@
-var ClasificadorFechaDePagoPorHora = require('./ClasificadorFechaDePagoPorHora ../src/ReglasDeNegocioEmpresa/Empleado/ClasificadoresFechaDePago/ClasificadorFechaDePagoPorHora').ClasificadorFechaDePagoPorHora;
+var ClasificadorFechaDePagoPorHora = require('./ClasificadorFechaDePagoPorHora' ).ClasificadorFechaDePagoPorHora;
 var ClasificadorFechaDePagoFijo = require('./ClasificadorFechaDePagoFijo').ClasificadorFechaDePagoFijo;
 var ClasificadorFechaDePagoPorComision = require('./ClasificadorFechaDePagoPorComision').ClasificadorFechaDePagoPorComision;
 
