@@ -1,12 +1,15 @@
-
+const montoDescuentoSindicato=10;
 class CalculadoraPorComision {
     constructor(salarioBase, porcentajeComision, listaTarjetasVenta) {
         this.salarioBase = salarioBase;
         this.porcentajeComision = porcentajeComision;
         this.listaTarjetasVenta = listaTarjetasVenta;
     }
-    calcularSalario() {
-        return this.salarioBase + (this.porcentajeComision * this.calcularMontoTotalDeVentas());
+    calcularSalario(perteneceASindicato) {
+        let descuentosSindicato=0;
+        if(perteneceASindicato)
+            descuentosSindicato = montoDescuentoSindicato;
+        return this.salarioBase + (this.porcentajeComision * this.calcularMontoTotalDeVentas()) - descuentosSindicato;
     }
     calcularMontoTotalDeVentas() {
         let cantidadDeMonto = 0;

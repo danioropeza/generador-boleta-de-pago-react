@@ -14,7 +14,7 @@ var MetodoDePago = require('../src/ReglasDeNegocioEmpresa/Empleado/MetodosPago/M
 
 describe('calcular el salario para empleados y su fecha de paga', function () {
     
-    it('obtener salario para un Empleado fijo que gana 1800 y que asistio un dia laboral', function () {
+    it('obtener salario para un Empleado fijo que gana 1800 ', function () {
 
         let fechaIncioLaboral = new Date(2019, 3, 22);
         let calculadora = new CalculadoraPorFijo(1800,fechaIncioLaboral);
@@ -23,6 +23,17 @@ describe('calcular el salario para empleados y su fecha de paga', function () {
         let metodoDePago = new MetodoDePago("Deposito");
         let empleado = new Empleado("Erick", 1, calculadora,calculadoraDeFecha,metodoDePago);
         expect(empleado.calcularSalario()).equal(1800);
+    });
+    it('obtener salario para un Empleado fijo que gana 1800 y pertenece a un sindicato ', function () {
+
+        let fechaIncioLaboral = new Date(2019, 3, 22);
+        let calculadora = new CalculadoraPorFijo(1800,fechaIncioLaboral);
+
+        let calculadoraDeFecha = new ClasificadorFechaDePagoFijo(fechaIncioLaboral);
+        let metodoDePago = new MetodoDePago("Deposito");
+        let perteneceASindicato=true;
+        let empleado = new Empleado("Erick", 1, calculadora,calculadoraDeFecha,metodoDePago,perteneceASindicato);
+        expect(empleado.calcularSalario()).equal(1770);
     });
 
     it('obtener la fecha de paga para un Empleado fijo', function () {
@@ -81,6 +92,23 @@ describe('calcular el salario para empleados y su fecha de paga', function () {
         expect(empleado.calcularSalario()).equal(2400);
     });
 
+    it('obtener el salario para un Empleado por hora con mas de 1 tarjeta de venta y 200 de salario por hora y que pertenece a un sindicato', function () {
+        let asistencia1 = new AsistenciaPorDia("2019-03-22", "16:00:00", "20:00:00");
+        let asistencia2 = new AsistenciaPorDia("2019-03-23", "16:00:00", "20:00:00");
+        let asistencia3 = new AsistenciaPorDia("2019-03-24", "16:00:00", "20:00:00");
+        let tarjetaAsistencia = new TarjetaAsistencia();
+        tarjetaAsistencia.agregarAsistencia(asistencia1);
+        tarjetaAsistencia.agregarAsistencia(asistencia2);
+        tarjetaAsistencia.agregarAsistencia(asistencia3);
+        let fechaIncioLaboral = new Date(2019, 5, 3);
+        let calculadoraDeFecha = new ClasificadorFechaDePagoPorHora(fechaIncioLaboral);
+        let calculadora = new CalculadoraPorHora(200, tarjetaAsistencia);
+        let metodoDePago = new MetodoDePago("Efectivo");
+        let perteneceASindicato =true;
+        let empleado = new Empleado("Erick", 1, calculadora,calculadoraDeFecha,metodoDePago,perteneceASindicato);
+        expect(empleado.calcularSalario()).equal(2390);
+    });
+
     it('obtener salario para un Empleado por comision con 1 tarjeta de venta y 5% de comision', function () {
         let tarjetaVentas = new TarjetaVenta(500, "2019-03-22");
         let calculadora = new CalculadoraPorComision(200, 0.05, [tarjetaVentas]);
@@ -105,6 +133,23 @@ describe('calcular el salario para empleados y su fecha de paga', function () {
         let empleado = new Empleado("Erick", 1, calculadora,calculadoraDeFecha,metodoDePago);
 
         expect(empleado.calcularSalario()).equal(763);
+    });
+
+    it('obtener salario para un Empleado por comision con 3 Tarjetas de venta y 7% de comision y pertenece a un sindicato', function () {
+        let tarjetaVenta1 = new TarjetaVenta(500, "2019-03-22");
+        let tarjetaVenta2 = new TarjetaVenta(300, "2019-03-22");
+        let tarjetaVenta3 = new TarjetaVenta(100, "2019-03-22");
+
+        let lista = [tarjetaVenta1, tarjetaVenta2, tarjetaVenta3];
+
+        let calculadora = new CalculadoraPorComision(700,0.07,lista);
+        let fechaIncioLaboral = new Date(2019, 5, 3);
+        let calculadoraDeFecha = new ClasificadorFechaDePagoPorComision(fechaIncioLaboral);
+        let metodoDePago = new MetodoDePago("Cheque");
+        let perteneceASindicato = true;
+        let empleado = new Empleado("Erick", 1, calculadora,calculadoraDeFecha,metodoDePago,perteneceASindicato);
+
+        expect(empleado.calcularSalario()).equal(743);
     });
 
     it('obtener la fecha de paga para un Empleado por comision', function () {

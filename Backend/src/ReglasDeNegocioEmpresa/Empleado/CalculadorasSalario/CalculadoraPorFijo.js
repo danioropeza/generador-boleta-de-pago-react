@@ -1,3 +1,5 @@
+const montoDescuentoSindicato=30;
+
 const funcionesFecha = require("../../FuncionesAuxiliares/FuncionesFecha");
 
 class CalculadoraPorFijo {
@@ -5,11 +7,14 @@ class CalculadoraPorFijo {
         this.salario=salario;
         this.fechaInicioTrabajo=fechaInicioTrabajo;
     }
-    calcularSalario(){
+    calcularSalario(perteneceASindicato){
+        let descuentosSindicato=0;
+        if(perteneceASindicato)
+            descuentosSindicato = montoDescuentoSindicato;
         if(this.empezoATrabajarRecien()){
             return this.obtenerSueldoDiasRestantesDelMes();
         }
-        return this.salario;
+        return this.salario-descuentosSindicato;
     }
     obtenerSueldoDiasRestantesDelMes(){
 
