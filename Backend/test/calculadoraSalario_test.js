@@ -6,7 +6,6 @@ var CalculadoraPorComision = require('../src/ReglasDeNegocioEmpresa/Empleado/Cal
 var AsistenciaPorDia = require('../src/ReglasDeNegocioEmpresa/Empleado/CalculadorasSalario/Tarjetas/AsistenciaPorDia').AsistenciaPorDia;
 var TarjetaAsistencia = require('../src/ReglasDeNegocioEmpresa/Empleado/CalculadorasSalario/Tarjetas/TarjetaAsistencia').TarjetaAsistencia;
 var TarjetaVenta = require('../src/ReglasDeNegocioEmpresa/Empleado/CalculadorasSalario/Tarjetas/TarjetaVenta').TarjetaVenta;
-let DiasTrabajados=[];
 describe('Calculadora de salario', function () {
 
     it('calcular salario para un Empleado fijo que asistio un dia laboral del mes', function () {
@@ -16,8 +15,8 @@ describe('Calculadora de salario', function () {
     });
 
     it('calcular salario para un Empleado fijo que asistio 10 dias laborales del mes', function () {
-        let fechaIncioLaboral = new Date(2019, 4, 20);
-        let calculadora = new CalculadoraPorFijo(2300,fechaIncioLaboral);
+        let fechaIncioLaboral = new Date(2019, 5, 17);
+        let calculadora = new CalculadoraPorFijo(2000,fechaIncioLaboral);
         expect(calculadora.calcularSalario()).equal(1000);
     });
 
