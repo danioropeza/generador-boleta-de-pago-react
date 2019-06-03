@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b8bde44-d990-4109-8bcd-a7ffa905173f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AdaptadoresDeInterfaz/Controladores/ControladorEmpleado.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdaptadoresDeInterfaz/Controladores/ControladorEmpleado.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AdaptadoresDeInterfaz/ModeloDePeticion/ModeloDePeticionEmpleado.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdaptadoresDeInterfaz/ModeloDePeticion/ModeloDePeticionEmpleado.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrameworksYDrivers/UI/React/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrameworksYDrivers/UI/React/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrameworksYDrivers/UI/React/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrameworksYDrivers/UI/React/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrameworksYDrivers/UI/React/src/components/forms/FormularioAsistencia.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrameworksYDrivers/UI/React/src/components/formularios/FormularioAsistencia.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrameworksYDrivers/UI/React/src/components/forms/FormularioVenta.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrameworksYDrivers/UI/React/src/components/formularios/FormularioVenta.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrameworksYDrivers/UI/React/src/components/messages/InlineError.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrameworksYDrivers/UI/React/src/components/mensajes/InlineError.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrameworksYDrivers/UI/React/src/components/pages/PaginaAsistencia.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrameworksYDrivers/UI/React/src/components/paginas/PaginaAsistencia.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrameworksYDrivers/UI/React/src/components/pages/PaginaBoletas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrameworksYDrivers/UI/React/src/components/paginas/PaginaBoletas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrameworksYDrivers/UI/React/src/components/pages/PaginaEmpleados.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrameworksYDrivers/UI/React/src/components/paginas/PaginaEmpleados.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrameworksYDrivers/UI/React/src/components/pages/PaginaError.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrameworksYDrivers/UI/React/src/components/paginas/PaginaError.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrameworksYDrivers/UI/React/src/components/pages/PaginaPrincipal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrameworksYDrivers/UI/React/src/components/paginas/PaginaPrincipal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrameworksYDrivers/UI/React/src/components/pages/PaginaVenta.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrameworksYDrivers/UI/React/src/components/paginas/PaginaVenta.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrameworksYDrivers/UI/React/src/components/pages/RegistroEmpleado.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrameworksYDrivers/UI/React/src/components/paginas/RegistroEmpleado.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrameworksYDrivers/UI/React/src/images/imagenHomePrincipal.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrameworksYDrivers/UI/React/src/imagenes/imagenHomePrincipal.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,20 +18,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/calculadoraDeFechaDePago_test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="36" column="3" selection-start-line="36" selection-start-column="3" selection-end-line="36" selection-end-column="3" />
+            <state relative-caret-position="782">
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/FrameworksYDrivers/UI/React/src/components/formularios/FormularioEmpleado.js">
+        <entry file="file://$PROJECT_DIR$/src/ReglasDeNegocioAplicacion/CasosDeUso/CrearEmpleado.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="22" column="39" lean-forward="true" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="249">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AdaptadoresDeInterfaz/Controladores/ControladorEmpleado.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="295">
+              <caret line="41" column="24" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AdaptadoresDeInterfaz/Controladores/GeneradorBoletaDePago.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="196">
+              <caret line="28" column="7" lean-forward="true" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -54,8 +54,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/empleado_test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1428">
+            <state relative-caret-position="165">
               <caret line="84" column="57" selection-start-line="84" selection-start-column="28" selection-end-line="84" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="92">
+              <caret line="4" column="21" lean-forward="true" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package-lock.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="115">
+              <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -63,7 +81,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/notificacion_test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
+            <state relative-caret-position="943">
               <caret line="41" column="27" selection-start-line="41" selection-end-line="42" />
             </state>
           </provider>
@@ -136,6 +154,8 @@
         <option value="$PROJECT_DIR$/Interactor/Interactor.js" />
         <option value="$PROJECT_DIR$/test/calculadoraDeFechaDePago_test.js" />
         <option value="$PROJECT_DIR$/src/FrameworksYDrivers/UI/React/src/components/formularios/FormularioEmpleado.js" />
+        <option value="$PROJECT_DIR$/src/AdaptadoresDeInterfaz/Controladores/ControladorEmpleado.js" />
+        <option value="$PROJECT_DIR$/src/ReglasDeNegocioAplicacion/CasosDeUso/CrearEmpleado.js" />
       </list>
     </option>
   </component>
@@ -167,52 +187,20 @@
               <item name="GeneradorBoletas" type="b2602c69:ProjectViewProjectNode" />
               <item name="GeneradorBoletas" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="FrameworksYDrivers" type="462c0819:PsiDirectoryNode" />
+              <item name="AdaptadoresDeInterfaz" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GeneradorBoletas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GeneradorBoletas" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="AdaptadoresDeInterfaz" type="462c0819:PsiDirectoryNode" />
+              <item name="Controladores" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GeneradorBoletas" type="b2602c69:ProjectViewProjectNode" />
               <item name="GeneradorBoletas" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="FrameworksYDrivers" type="462c0819:PsiDirectoryNode" />
-              <item name="UI" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GeneradorBoletas" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GeneradorBoletas" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="FrameworksYDrivers" type="462c0819:PsiDirectoryNode" />
-              <item name="UI" type="462c0819:PsiDirectoryNode" />
-              <item name="React" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GeneradorBoletas" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GeneradorBoletas" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="FrameworksYDrivers" type="462c0819:PsiDirectoryNode" />
-              <item name="UI" type="462c0819:PsiDirectoryNode" />
-              <item name="React" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GeneradorBoletas" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GeneradorBoletas" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="FrameworksYDrivers" type="462c0819:PsiDirectoryNode" />
-              <item name="UI" type="462c0819:PsiDirectoryNode" />
-              <item name="React" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GeneradorBoletas" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GeneradorBoletas" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="FrameworksYDrivers" type="462c0819:PsiDirectoryNode" />
-              <item name="UI" type="462c0819:PsiDirectoryNode" />
-              <item name="React" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="formularios" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -252,16 +240,17 @@
       <workItem from="1557763435425" duration="4658000" />
       <workItem from="1558185589792" duration="9136000" />
       <workItem from="1559532727130" duration="135000" />
+      <workItem from="1559580383018" duration="3559000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31120000" />
+    <option name="totallyTimeSpent" value="36067000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24236038" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24032739" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -274,7 +263,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.5362947" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.24615385" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -306,20 +295,6 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/db/BaseDeDatosMongo.js" />
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="21" lean-forward="true" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package-lock.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tarjetas/TarjetaVenta.js" />
     <entry file="file://$PROJECT_DIR$/test/asistencia_dia_test.js" />
     <entry file="file://$PROJECT_DIR$/tarjetas/AsistenciaDia.js" />
@@ -402,27 +377,6 @@
     <entry file="file://$PROJECT_DIR$/notificaciones/Whatsapp.js" />
     <entry file="file://$PROJECT_DIR$/notificaciones/Notificador.js" />
     <entry file="file://$PROJECT_DIR$/Interactor/Interactor.js" />
-    <entry file="file://$PROJECT_DIR$/test/calculadoraDeFechaDePago_test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="36" column="3" selection-start-line="36" selection-start-column="3" selection-end-line="36" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/empleado_test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1428">
-          <caret line="84" column="57" selection-start-line="84" selection-start-column="28" selection-end-line="84" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/notificacion_test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="41" column="27" selection-start-line="41" selection-end-line="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/FrameworksYDrivers/UI/React/src/components/formularios/FormularioEmpleado.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -430,6 +384,62 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/calculadoraDeFechaDePago_test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/notificacion_test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="943">
+          <caret line="41" column="27" selection-start-line="41" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/empleado_test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="84" column="57" selection-start-line="84" selection-start-column="28" selection-end-line="84" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="21" lean-forward="true" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdaptadoresDeInterfaz/Controladores/GeneradorBoletaDePago.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="28" column="7" lean-forward="true" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdaptadoresDeInterfaz/Controladores/ControladorEmpleado.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="41" column="24" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ReglasDeNegocioAplicacion/CasosDeUso/CrearEmpleado.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>

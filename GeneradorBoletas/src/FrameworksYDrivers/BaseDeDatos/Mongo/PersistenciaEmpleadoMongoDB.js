@@ -7,17 +7,41 @@ class PersistenciaEmpleadoMongoDB {
     this.baseDeDatos = this.empleadoRepository.mongoose;
   }
   realizarConexion(empleado, servicio, nuevosValores) {
-    this.baseDeDatos.connect(this.empleadoRepository.url, (err, baseDeDatos) => { 
-        baseDeDatos = this.configurarBaseDeDatos(err, baseDeDatos);
-         console.log(servicio(baseDeDatos, empleado, nuevosValores));
+    return new Promise(function(resolve, reject){
+      this.baseDeDatos.connect(this.empleadoRepository.url, (err, baseDeDatos) => { 
+        resolve("entro dentro de la funcion somos unos cracks!!!");
+        // baseDeDatos = this.configurarBaseDeDatos(err, baseDeDatos);
+         
+        //       // resolve(servicio(baseDeDatos, empleado, nuevosValores));
+        //       baseDeDatos.insertOne(empleado, function (err, res) {
+        //         console.log("1 documento insertado");
+        //         if (err){
+        //           reject("somos unos inutiles");
+        //         }
+                
+        //         res = "1 documento insertado";
+        //         //baseDeDatos.close();
+        //       });
+    }); 
+
          //console.log(algo);
-      });
-  }
+      }
+
+    // return new Promise(function(resolve, reject){
+    //     resolve("entro dentro la promesa");
+    //     this.baseDeDatos.connect(this.empleadoRepository.url, (err, baseDeDatos) => { 
+    //       return "realizar conexion";
+    //         baseDeDatos = this.configurarBaseDeDatos(err, baseDeDatos);
+    //          console.log(servicio(baseDeDatos, empleado, nuevosValores));
+    //          //console.log(algo);
+    //       });
+    // })
+    )}
   configurarBaseDeDatos(err, baseDeDatos) {
     return baseDeDatos.db("BoletasDePago").collection("empleado");
   }
-  insertarEmpleado(empleado) {
-    this.realizarConexion(empleado, this.insertOne, "");
+  async insertarEmpleado(empleado) {
+    return await this.realizarConexion(empleado, this.insertOne, "");
   }
   buscarEmpleado(empleado) {
     this.realizarConexion(empleado, this.find, "");

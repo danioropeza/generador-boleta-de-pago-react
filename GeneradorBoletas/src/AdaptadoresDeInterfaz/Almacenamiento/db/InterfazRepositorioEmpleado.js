@@ -3,7 +3,7 @@ class  InterfazRepositorioEmpleado{
         this.persitencia = persitencia;
     }
     insertarEmpleado(empleado){
-        this.persitencia.insertarEmpleado(empleado);
+        return  this.persitencia.insertarEmpleado(empleado);
     }
     buscarEmpleado(empleado){
         this.persitencia.buscarEmpleado(empleado);

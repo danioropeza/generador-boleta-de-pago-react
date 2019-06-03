@@ -1,10 +1,14 @@
 const express=require("express");
 const app=express();
+
 var  bodyParser = require("body-parser");
 var InterfazRepositorioEmpleado = require("../Almacenamiento/db/InterfazRepositorioEmpleado").InterfazRepositorioEmpleado;
-var PersistenciaEmpleadoMongoDB = require("../../FrameworksYDrivers/BaseDeDatos/Mongo/PersistenciaEmpleadoMongoDB").PersistenciaEmpleadoMongoDB;
+var PersistenciaEmpleadoJSON = require("../../FrameworksYDrivers/BaseDeDatos/JSON/PersistenciaEmpleadoJSON").PersistenciaEmpleadoJSON;
 var CrearEmpleado = require("../../ReglasDeNegocioAplicacion/CasosDeUso/CrearEmpleado").CrearEmpleado;
 var PeticionModeloEmpleado = require("../ModeloDePeticion/ModeloDePeticionEmpleado").PeticionModeloEmpleado;
+var PresentadorCrearEmpleado = require("../Presentadores/PresentadorCrearEmpleado").PresentadorCrearEmpleado;
+const repositorio = new InterfazRepositorioEmpleado(new PersistenciaEmpleadoJSON());
+const presentadorCrearEmpleado = new PresentadorCrearEmpleado();
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -26,20 +30,16 @@ app.get('/', function(req,res){
     console.log("home");
 });
 
-//192.168.3.95
 app.get('/empleados',function(request,response){
     console.log("get empleados");
     var interfazGeneradorBoletaDePago = new InterfazGeneradorBoletaDePago(new GeneradorBoletaDePago());
 });
 
-app.post('/empleado/nuevo',function(request,res){
+app.post('/empleado/nuevo', function(request,res){
     const requestModelUser = PeticionModeloEmpleado(request.body);
-    
-    //llevar a un metodo que se ejecute para todos...un mani 
-    const repositorio = new InterfazRepositorioEmpleado(new PersistenciaEmpleadoMongoDB());
     const crearEmpleado = new CrearEmpleado(repositorio, requestModelUser);
-
-    crearEmpleado.crearEmpleadoNuevo();
+    let respuesta =  crearEmpleado.crearEmpleadoNuevo();
+    res.send( presentadorCrearEmpleado.presentarRespuesta(respuesta));
 }); 
 
 app.get('/empleado/:ci',function(req,res){

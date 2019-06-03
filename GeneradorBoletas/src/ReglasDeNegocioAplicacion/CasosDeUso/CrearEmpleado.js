@@ -8,8 +8,7 @@ class CrearEmpleado {
     crearEmpleadoNuevo()
     {
         var empleado = new EmpleadoFactory(this.datosEmpleado);
-        console.log(empleado);
-        this.repositorio.insertarEmpleado(empleado);
+        return  this.repositorio.insertarEmpleado(empleado);
     }
 }
 
