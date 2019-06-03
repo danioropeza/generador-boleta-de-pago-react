@@ -1,3 +1,5 @@
+var TarjetaVenta = require('./Tarjetas/TarjetaVenta').TarjetaVenta;
+var TarjetaAsistencia = require('./Tarjetas/TarjetaAsistencia').TarjetaAsistencia;
 var CalculadoraPorFijo = require('./CalculadoraPorFijo').CalculadoraPorFijo;
 var CalculadoraPorHora = require('./CalculadoraPorHora').CalculadoraPorHora;
 var CalculadoraPorComision = require('./CalculadoraPorComision').CalculadoraPorComision;

@@ -32,9 +32,9 @@ app.get('/empleados',function(request,response){
     var interfazGeneradorBoletaDePago = new InterfazGeneradorBoletaDePago(new GeneradorBoletaDePago());
 });
 
-app.post('/Empleado/nuevo',function(request,res){
+app.post('/empleado/nuevo',function(request,res){
     const requestModelUser = PeticionModeloEmpleado(request.body);
-
+    
     //llevar a un metodo que se ejecute para todos...un mani 
     const repositorio = new InterfazRepositorioEmpleado(new PersistenciaEmpleadoMongoDB());
     const crearEmpleado = new CrearEmpleado(repositorio, requestModelUser);
@@ -42,15 +42,15 @@ app.post('/Empleado/nuevo',function(request,res){
     crearEmpleado.crearEmpleadoNuevo();
 }); 
 
-app.get('/Empleado/:ci',function(req,res){
+app.get('/empleado/:ci',function(req,res){
     console.log("get Empleado");
 });
 
-app.put('/Empleado/:ci', function(req, res){
+app.put('/empleado/:ci', function(req, res){
     console.log("put Empleado");
 });
 
-app.delete('/Empleado/:ci', function(req,res){
+app.delete('/empleado/:ci', function(req,res){
     console.log("delete Empleado");
 });
 app.listen(7000);

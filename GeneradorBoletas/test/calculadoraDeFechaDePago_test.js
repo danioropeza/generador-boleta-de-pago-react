@@ -34,5 +34,4 @@ it('recibe una fecha y devuelve la fecha del 2do viernes para pagar a un Emplead
     expect(correspondePagar).equal(true);
 
 });
-
 });

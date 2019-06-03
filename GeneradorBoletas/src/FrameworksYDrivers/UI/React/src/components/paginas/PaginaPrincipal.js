@@ -1,5 +1,5 @@
 import React from 'react'; 
-import homeImage from '../../images/imagenHomePrincipal.jpg';
+import homeImage from '../../imagenes/imagenHomePrincipal.jpg';
 
 const styles = {
     textAlign: "center"

@@ -1,15 +1,15 @@
 import React from 'react'; 
-import FormularioVenta from "../forms/FormularioVenta";
-import { Button } from "semantic-ui-react";
+import FormularioAsistencia from "../formularios/FormularioAsistencia";
+import { Button, Form } from "semantic-ui-react";
 
-class PaginaVenta extends React.Component {
+class PaginaAsistencia extends React.Component {
     constructor(props) {
         super(props);
     }
-    submit = (data) => {
-        console.log(data)
-        alert("se guardo la venta correctamente!");
-    };
+    guardarAsistencia = (asistencia) => {
+        console.log(asistencia)
+        alert("se guardo la asistencia correctamente!");
+    }
     volverAPaginaEmpleados() {
         this.props.history.goBack();
     }
@@ -18,8 +18,8 @@ class PaginaVenta extends React.Component {
             <div>
                 <div className="ui container">
                     <br />
-                    <h1>Registro de nueva venta</h1>
-                    <FormularioVenta submit={this.submit}/>
+                    <h1>Registro de nueva asistencia</h1>
+                    <FormularioAsistencia submit={this.guardarAsistencia}/>
                     <br />
                     <Button onClick={this.volverAPaginaEmpleados.bind(this)}>Cancelar</Button>
                     <br />
@@ -28,4 +28,4 @@ class PaginaVenta extends React.Component {
         );
     }
 }
-export default PaginaVenta;
+export default PaginaAsistencia;

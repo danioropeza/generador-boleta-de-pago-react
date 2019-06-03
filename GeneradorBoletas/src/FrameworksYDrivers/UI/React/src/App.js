@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import PaginaPrincipal from './components/pages/PaginaPrincipal';
-import RegistroEmpleado from './components/pages/RegistroEmpleado';
-import PaginaAsistencia from './components/pages/PaginaAsistencia';
-import PaginaEmpleados from './components/pages/PaginaEmpleados';
-import PaginaBoletas from './components/pages/PaginaBoletas';
-import PaginaVenta from './components/pages/PaginaVenta';
-import ErrorPage from './components/pages/PaginaError';
+import PaginaPrincipal from './components/paginas/PaginaPrincipal';
+import RegistroEmpleado from './components/paginas/RegistroEmpleado';
+import PaginaAsistencia from './components/paginas/PaginaAsistencia';
+import PaginaEmpleados from './components/paginas/PaginaEmpleados';
+import PaginaBoletas from './components/paginas/PaginaBoletas';
+import PaginaVenta from './components/paginas/PaginaVenta';
+import ErrorPage from './components/paginas/PaginaError';
 
 const App = () => (
   <Switch className="ui container">

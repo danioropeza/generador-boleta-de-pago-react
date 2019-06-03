@@ -9,10 +9,11 @@ class EmpleadoFactory {
         let calculadoraSalario=new CalculadoraSalarioFactory(datosEmpleado.tipo,datosEmpleado);
         let clasificadorFecha = new ClasificadorFechaFactory(datosEmpleado.tipo);
         let metodoDePago = new MetodoPagoFactory(datosEmpleado.tipo);
-        let empleado = new Empleado(datosEmpleado.nombre, datosEmpleado.ci, calculadoraSalario, clasificadorFecha, metodoDePago);
-        this.datosEmpleado.metodosDeNotificacion.forEach((metodoNotificacion) => {
-                empleado = new MetodosNotificacionFactory(metodoNotificacion,empleado);
+        let empleado = new Empleado(datosEmpleado.nombre, datosEmpleado.ci, calculadoraSalario, clasificadorFecha, metodoDePago, datosEmpleado.perteneceASindicato);
+        datosEmpleado.metodosDeNotificacion.forEach((metodoNotificacion) => {
+            empleado = new MetodosNotificacionFactory(metodoNotificacion,empleado);
         });
+        return empleado;
     }
 }
 

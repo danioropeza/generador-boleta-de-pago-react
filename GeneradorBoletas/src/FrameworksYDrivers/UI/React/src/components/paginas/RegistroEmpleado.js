@@ -1,5 +1,5 @@
 import React from 'react'; 
-import FormularioEmpleado from "../forms/FormularioEmpleado";
+import FormularioEmpleado from "../formularios/FormularioEmpleado";
 import { Button } from "semantic-ui-react";
 import axios from "axios";
 
@@ -7,10 +7,11 @@ class RegistroEmpleado extends React.Component {
     constructor(props) {
         super(props);
     }
-    submit = (data) => {
-        axios.post('http://localhost:7000/empleado/nuevo', data)
-             .then(res => alert("Se creo un nuevo cliente"))
+    crearNuevoEmpleado = (empleado) => {
+        axios.post('http://localhost:7000/empleado/nuevo', empleado)
+             .then(res => alert("Se creo un nuevo empleado"))
              .catch(error => console.log(error))
+        this.props.history.push("/");
     }
     volverAPaginaEmpleados() {
         this.props.history.goBack();
@@ -21,7 +22,7 @@ class RegistroEmpleado extends React.Component {
                 <div className="ui container">
                     <br />
                     <h1>Registro de nuevo empleado</h1>
-                    <FormularioEmpleado submit={this.submit}/>
+                    <FormularioEmpleado submit={this.crearNuevoEmpleado}/>
                     <br />
                     <Button onClick={this.volverAPaginaEmpleados.bind(this)}>Cancelar</Button>
                     <br />

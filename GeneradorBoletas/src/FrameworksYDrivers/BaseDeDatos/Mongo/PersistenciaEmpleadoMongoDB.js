@@ -9,7 +9,8 @@ class PersistenciaEmpleadoMongoDB {
   realizarConexion(empleado, servicio, nuevosValores) {
     this.baseDeDatos.connect(this.empleadoRepository.url, (err, baseDeDatos) => { 
         baseDeDatos = this.configurarBaseDeDatos(err, baseDeDatos);
-         servicio(baseDeDatos, empleado, nuevosValores);
+         console.log(servicio(baseDeDatos, empleado, nuevosValores));
+         //console.log(algo);
       });
   }
   configurarBaseDeDatos(err, baseDeDatos) {
@@ -28,7 +29,7 @@ class PersistenciaEmpleadoMongoDB {
     this.realizarConexion(empleado, this.deleteOne, "");
   }
   devolverTodosLosEmpleado(){
-    this.realizarConexion(empleado, this.findAll, "");
+    this.realizarConexion("", this.findAll, "");
   }
   insertOne(baseDeDatos, empleado) {
     baseDeDatos.insertOne(empleado, function (err, res) {
@@ -62,9 +63,11 @@ class PersistenciaEmpleadoMongoDB {
   findAll(baseDeDatos, empleado) {
     baseDeDatos.find({}).toArray(function(err, result){
       if (err) resolve(null);
+      //console.log(result)
+      return result;
       //resolve(result);
       //falta
-      baseDeDatos.close();
+      //baseDeDatos.close();
     });
   }
 }

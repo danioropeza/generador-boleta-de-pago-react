@@ -1,7 +1,8 @@
 import React from 'react'; 
+import FormularioVenta from "../formularios/FormularioVenta";
 import { Button } from "semantic-ui-react";
 
-class PaginaBoletas extends React.Component {
+class PaginaVenta extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -9,20 +10,22 @@ class PaginaBoletas extends React.Component {
         console.log(data)
         alert("se guardo la venta correctamente!");
     };
-    redireccionarAFormulario(url) {
-        //this.props.history.push('/' + url);
+    volverAPaginaEmpleados() {
+        this.props.history.goBack();
     }
     render(){
         return(            
             <div>
                 <div className="ui container">
                     <br />
-                    <Button onClick={this.redireccionarAFormulario.bind(this, "generarboleta")} color="red" fluid>Generar Boleta</Button>
+                    <h1>Registro de nueva venta</h1>
+                    <FormularioVenta submit={this.submit}/>
                     <br />
-                    <Button onClick={this.redireccionarAFormulario.bind(this, "enviarnotificacion")} color="red" fluid>Enviar Notificaciones</Button>
+                    <Button onClick={this.volverAPaginaEmpleados.bind(this)}>Cancelar</Button>
+                    <br />
                 </div>
             </div>
         );
     }
 }
-export default PaginaBoletas;
+export default PaginaVenta;

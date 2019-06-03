@@ -1,5 +1,5 @@
 class Empleado{
-    constructor(nombre, ci, calculadora, calculadoraFechaPago, metodoPago, perteneceASindicato =false ){
+    constructor(nombre, ci, calculadora, calculadoraFechaPago, metodoPago, perteneceASindicato){
         this.nombre=nombre;
         this.ci=ci;
         this.calculadora=calculadora;
