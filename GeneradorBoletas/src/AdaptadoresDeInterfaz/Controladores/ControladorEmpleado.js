@@ -68,10 +68,6 @@ app.get('/empleado/:ci',function(peticion,respuesta){
     respuesta.send(presentadorRespuesta);
 });
 
-app.put('/empleado/:ci', function(req, res){
-    console.log("put Empleado");
-});
-
 app.delete('/empleado/:ci', function(peticion,respuesta){
     let ci = parseInt(peticion.params.ci).toString();
     const eliminarEmpleadoInteractor = new EliminarEmpleadoInteractor(repositorio);
