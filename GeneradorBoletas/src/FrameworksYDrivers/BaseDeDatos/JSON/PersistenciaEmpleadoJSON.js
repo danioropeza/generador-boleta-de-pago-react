@@ -13,7 +13,6 @@ class  PersistenciaEmpleadoJSON{
         if(!empleado)
             return "Error";
         this.listaEmpleados.push(empleado);
-        console.log(empleado);
         return "Ok";
     }
     obtenerUnEmpleado(ci){

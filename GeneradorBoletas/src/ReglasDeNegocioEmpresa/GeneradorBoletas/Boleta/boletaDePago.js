@@ -8,7 +8,7 @@ class BoletaDePago{
             "nombreEmpleado": empleado.nombre,
             "salario": empleado.salarioTotal,
             "tipoDeMoneda": "Bs",
-            "metodoDePago": empleado.metodoDePagoElejido
+            "metodoDePago": empleado.metodoPagoElejido
         }    
         return boleta;
     }

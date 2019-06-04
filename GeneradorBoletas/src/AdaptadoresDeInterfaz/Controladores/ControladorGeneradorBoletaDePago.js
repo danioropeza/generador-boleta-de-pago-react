@@ -10,9 +10,13 @@ var PersistenciaBoletaJSON = require("../../FrameworksYDrivers/BaseDeDatos/JSON/
 
 var ObtenerEmpleadosInteractor = require("../../ReglasDeNegocioAplicacion/CasosDeUso/ObtenerEmpleadosInteractor").ObtenerEmpleadosInteractor;
 var GenerarBoletasInteractor = require("../../ReglasDeNegocioAplicacion/CasosDeUso/GenerarBoletasInteractor").GenerarBoletasInteractor;
+var ObtenerBoletasInteractor = require("../../ReglasDeNegocioAplicacion/CasosDeUso/ObtenerBoletasInteractor").ObtenerBoletasInteractor;
+
 var PresentadorGenerarBoletas = require("../Presentadores/PresentadorGenerarBoletas").PresentadorGenerarBoletas;
+var PresentadorObtenerBoletas = require("../Presentadores/PresentadorObtenerBoletas").PresentadorObtenerBoletas;
 
 const presentadorGenerarBoletas = new PresentadorGenerarBoletas();
+const presentadorObtenerBoletas = new PresentadorObtenerBoletas();
 
 const repositorioEmpleado = new InterfazRepositorioEmpleado(new PersistenciaEmpleadoJSON());
 const repositorioBoleta = new InterfazRepositorioBoleta(new PersistenciaBoletaJSON());
@@ -35,11 +39,14 @@ app.get('/generarboletasdepagos',function(peticion,respuesta){
     const obtenerEmpleadosInteractor = new ObtenerEmpleadosInteractor(repositorioEmpleado);
     let respuestaInteractorEmpleados =  obtenerEmpleadosInteractor.obtenerEmpleados();
     const generarBoletasInteractor = new GenerarBoletasInteractor(repositorioBoleta, respuestaInteractorEmpleados);
-    let respuestaInteractorBoletas =  generarBoletasInteractor.generarBoleta();
-    let presentadorRespuesta =  presentadorGenerarBoletas.obtenerRespuesta(respuestaInteractorBoletas);
+    let respuestaInteractorGenerarBoletas =  generarBoletasInteractor.generarBoleta();
+    let presentadorRespuesta =  presentadorGenerarBoletas.obtenerRespuesta(respuestaInteractorGenerarBoletas);
     respuesta.send(presentadorRespuesta);
 });
 app.get('/verboletadepagos',function(peticion,respuesta){  
-
+    const obtenerBoletasInteractor = new ObtenerBoletasInteractor(repositorioBoleta);
+    let respuestaInteractorObtenerBoletas =  obtenerBoletasInteractor.obtenerBoletas();
+    let presentadorRespuesta =  presentadorObtenerBoletas.obtenerRespuesta(respuestaInteractorObtenerBoletas);
+    respuesta.send(presentadorRespuesta);
 });
 app.listen(7001);

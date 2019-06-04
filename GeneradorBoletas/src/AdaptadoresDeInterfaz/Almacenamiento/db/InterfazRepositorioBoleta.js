@@ -5,5 +5,8 @@ class  InterfazRepositorioBoleta{
     generarBoleta(listaBoletas) {
         return this.persitencia.generarBoleta(listaBoletas);
     }
+    obtenerBoletas() {
+        return this.persitencia.obtenerBoletas();
+    }
 }
 module.exports = { InterfazRepositorioBoleta };

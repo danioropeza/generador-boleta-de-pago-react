@@ -41,10 +41,6 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static(__dirname+'/site'));
 
-app.get('/', function(req,res){
-    console.log("home");
-});
-
 app.get('/empleados',function(peticion,respuesta){
     const obtenerEmpleadosInteractor = new ObtenerEmpleadosInteractor(repositorio);
     let respuestaInteractor =  obtenerEmpleadosInteractor.obtenerEmpleados();

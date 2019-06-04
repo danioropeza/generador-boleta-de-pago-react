@@ -20,6 +20,10 @@ class  PersistenciaBoletaJSON{
         });
         return "Ok";
     }
+    obtenerBoletas() {
+        this.listaBoletas = cargarDatos();
+        return this.listaBoletas;
+    }
 }
 module.exports = { PersistenciaBoletaJSON };
 

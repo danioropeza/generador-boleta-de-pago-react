@@ -18,7 +18,6 @@ class PresentadorObtenerEmpleados {
         return listaEmpleadosConFormato;
     }
     prepararFormatoEmpleado(empleado) {
-        console.log(empleado);
         return {
             "nombre": empleado.nombre,
             "ci": empleado.ci,

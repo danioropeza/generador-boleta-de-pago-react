@@ -28,5 +28,3 @@ class PaginaBoletas extends React.Component {
     }
 }
 export default PaginaBoletas;
-
-//<Button onClick={this.redireccionarAFormulario.bind(this, "enviarnotificacion")} color="red" fluid>Enviar Notificaciones</Button>
