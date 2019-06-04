@@ -3,12 +3,13 @@ class BoletaDePago{
     }
    
     generarBoleta(empleado){
-        let boleta =       `BOLETA DE PAGO
-                            Ci: ${empleado.obtenerCi()}
-                            Empleado: ${empleado.obtenerNombre()}
-                            Salario: ${empleado.calcularSalario()}
-                            Tipo de moneda: Bs
-                            Metodo de pago: ${empleado.obtenerMetodoPago()}`;
+        let boleta =  {
+            "ci": empleado.ci,
+            "nombreEmpleado": empleado.nombre,
+            "salario": empleado.salarioTotal,
+            "tipoDeMoneda": "Bs",
+            "metodoDePago": empleado.metodoDePagoElejido
+        }    
         return boleta;
     }
 }

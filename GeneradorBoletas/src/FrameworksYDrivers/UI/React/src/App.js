@@ -6,6 +6,7 @@ import RegistroEmpleado from './components/paginas/RegistroEmpleado';
 import PaginaAsistencia from './components/paginas/PaginaAsistencia';
 import PaginaEmpleados from './components/paginas/PaginaEmpleados';
 import PaginaBoletas from './components/paginas/PaginaBoletas';
+import PaginaListaBoletas from './components/paginas/PaginaListaBoletas';
 import PaginaVenta from './components/paginas/PaginaVenta';
 import ErrorPage from './components/paginas/PaginaError';
 
@@ -15,6 +16,7 @@ const App = () => (
     <Route path="/empleado" exact component={RegistroEmpleado} />
     <Route path="/empleados" exact component={PaginaEmpleados} />
     <Route path="/boletas" exact component={PaginaBoletas} />
+    <Route path="/verboletas" exact component={PaginaListaBoletas} />
     <Route path="/asistencia" exact component={PaginaAsistencia} />
     <Route path="/venta" exact component={PaginaVenta} />
     <Route exact component={ErrorPage} />

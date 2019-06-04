@@ -3,8 +3,19 @@ const app=express();
 var  bodyParser = require("body-parser");
 
 var InterfazRepositorioEmpleado = require("../Almacenamiento/db/InterfazRepositorioEmpleado").InterfazRepositorioEmpleado;
-var PersistenciaEmpleadoMongoDB = require("../../FrameworksYDrivers/BaseDeDatos/Mongo/PersistenciaEmpleadoMongoDB").PersistenciaEmpleadoMongoDB;
+var PersistenciaEmpleadoJSON = require("../../FrameworksYDrivers/BaseDeDatos/JSON/PersistenciaEmpleadoJSON").PersistenciaEmpleadoJSON;
 
+var InterfazRepositorioBoleta = require("../Almacenamiento/db/InterfazRepositorioBoleta").InterfazRepositorioBoleta;
+var PersistenciaBoletaJSON = require("../../FrameworksYDrivers/BaseDeDatos/JSON/PersistenciaBoletaJSON").PersistenciaBoletaJSON;
+
+var ObtenerEmpleadosInteractor = require("../../ReglasDeNegocioAplicacion/CasosDeUso/ObtenerEmpleadosInteractor").ObtenerEmpleadosInteractor;
+var GenerarBoletasInteractor = require("../../ReglasDeNegocioAplicacion/CasosDeUso/GenerarBoletasInteractor").GenerarBoletasInteractor;
+var PresentadorGenerarBoletas = require("../Presentadores/PresentadorGenerarBoletas").PresentadorGenerarBoletas;
+
+const presentadorGenerarBoletas = new PresentadorGenerarBoletas();
+
+const repositorioEmpleado = new InterfazRepositorioEmpleado(new PersistenciaEmpleadoJSON());
+const repositorioBoleta = new InterfazRepositorioBoleta(new PersistenciaBoletaJSON());
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -20,19 +31,15 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static(__dirname+'/site'));
 
-app.get('/generadorBoletadepagos',function(req,res){
-    const repositorio = new InterfazRepositorioEmpleado(new PersistenciaEmpleadoMongoDB());
-    var todosLosEmpleados = repositorio.devolverTodosLosEmpleado();
-    
-    /* 
-    const requestModelUser = PeticionModeloEmpleado(request.body);
-    
-    //llevar a un metodo que se ejecute para todos...un mani 
-    const crearEmpleado = new CrearEmpleado(repositorio, requestModelUser);
+app.get('/generarboletasdepagos',function(peticion,respuesta){
+    const obtenerEmpleadosInteractor = new ObtenerEmpleadosInteractor(repositorioEmpleado);
+    let respuestaInteractorEmpleados =  obtenerEmpleadosInteractor.obtenerEmpleados();
+    const generarBoletasInteractor = new GenerarBoletasInteractor(repositorioBoleta, respuestaInteractorEmpleados);
+    let respuestaInteractorBoletas =  generarBoletasInteractor.generarBoleta();
+    let presentadorRespuesta =  presentadorGenerarBoletas.obtenerRespuesta(respuestaInteractorBoletas);
+    respuesta.send(presentadorRespuesta);
+});
+app.get('/verboletadepagos',function(peticion,respuesta){  
 
-    crearEmpleado.crearEmpleadoNuevo();
-
-    var interfazGeneradorBoletaDePago = new InterfazGeneradorBoletaDePago(new GeneradorBoletaDePago());
-    */
 });
 app.listen(7001);

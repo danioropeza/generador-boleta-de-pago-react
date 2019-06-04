@@ -8,7 +8,7 @@ class EmpleadoFactory {
     constructor(datosEmpleado) {
         let calculadoraSalario=new CalculadoraSalarioFactory(datosEmpleado.tipo,datosEmpleado);
         let clasificadorFecha = new ClasificadorFechaFactory(datosEmpleado.tipo);
-        let metodoDePago = new MetodoPagoFactory(datosEmpleado.tipo);
+        let metodoDePago = new MetodoPagoFactory(datosEmpleado.metodoDePago);
         let empleado = new Empleado(datosEmpleado.nombre, datosEmpleado.ci, calculadoraSalario, clasificadorFecha, metodoDePago, datosEmpleado.perteneceASindicato);
         datosEmpleado.metodosDeNotificacion.forEach((metodoNotificacion) => {
             empleado = new MetodosNotificacionFactory(metodoNotificacion,empleado);

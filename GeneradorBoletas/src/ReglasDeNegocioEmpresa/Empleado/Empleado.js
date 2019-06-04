@@ -6,6 +6,8 @@ class Empleado{
         this.calculadoraFechaPago=calculadoraFechaPago;
         this.metodoPago=metodoPago;
         this.perteneceASindicato=perteneceASindicato;
+        this.salarioTotal=this.calcularSalario();
+        this.metodoPagoElejido=this.obtenerMetodoPago();
     }
     calcularSalario(){
         return this.calculadora.calcularSalario(this.perteneceASindicato);
