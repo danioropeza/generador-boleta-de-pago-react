@@ -1,6 +1,6 @@
 var EmpleadoFactory = require("../../ReglasDeNegocioEmpresa/Empleado/EmpleadoFactory").EmpleadoFactory;
 
-class CrearEmpleado {
+class CrearEmpleadoInteractor {
     constructor(repositorio, datosEmpleado) {
         this.repositorio = repositorio;
         this.datosEmpleado = datosEmpleado;
@@ -12,4 +12,4 @@ class CrearEmpleado {
     }
 }
 
-module.exports = { CrearEmpleado: CrearEmpleado }
+module.exports = { CrearEmpleadoInteractor: CrearEmpleadoInteractor }

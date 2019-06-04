@@ -12,22 +12,30 @@ class  PersistenciaEmpleadoJSON{
     insertarEmpleado(empleado){
         if(!empleado)
             return "Error";
-        this.listaEmpleados.push(JSON.stringify(empleado));
-        console.log("Lista",this.listaEmpleados);
+        this.listaEmpleados.push(empleado);
         return "Ok";
     }
-    buscarEmpleado(empleado){
-           
+    obtenerUnEmpleado(ci){
+        var respuesta = null;
+        this.listaEmpleados.forEach((empleado) => {
+            if(empleado.ci == ci){
+                respuesta = empleado;
+            }
+        });
+        return respuesta;
     }
-        
-    actualizarEmpleado(empleado, nuevosValores){
+    eliminarEmpleado(ci) {
+        let respuesta = "";
+        for(var index=0; index<this.listaEmpleados.length; index++){
+            if(this.listaEmpleados[index].ci == ci){
+                this.listaEmpleados.splice(index, 1)
+                respuesta = "Ok";
+            }
+        }
+        return respuesta;
     }
-    eliminarEmpleado(empleado) {
-
-    }
-    devolverTodosLosEmpleado(){
+    obtenerEmpleados(){
         return this.listaEmpleados;
-
     }
 }
 module.exports = { PersistenciaEmpleadoJSON };

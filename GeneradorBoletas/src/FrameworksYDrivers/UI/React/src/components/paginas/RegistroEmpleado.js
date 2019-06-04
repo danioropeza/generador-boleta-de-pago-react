@@ -9,7 +9,7 @@ class RegistroEmpleado extends React.Component {
     }
     crearNuevoEmpleado = (empleado) => {
         axios.post('http://localhost:7000/empleado/nuevo', empleado)
-             .then(res => console.log("el front end recibio la respuesta", res))
+             .then(respuesta => alert(respuesta.data))
              .catch(error => console.log(error))
         this.props.history.push("/");
     }

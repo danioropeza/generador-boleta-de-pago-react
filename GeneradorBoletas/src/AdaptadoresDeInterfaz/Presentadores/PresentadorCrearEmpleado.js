@@ -1,9 +1,8 @@
-
 class PresentadorCrearEmpleado {
     constructor() {
        
     }
-    presentarRespuesta(mensaje){
+    obtenerRespuesta(mensaje){
         if(mensaje=='Ok')
             return "El empleado se creó correctamente";
         return "No se creo el empleado";
@@ -12,4 +11,3 @@ class PresentadorCrearEmpleado {
 }
 
 module.exports = { PresentadorCrearEmpleado }
-

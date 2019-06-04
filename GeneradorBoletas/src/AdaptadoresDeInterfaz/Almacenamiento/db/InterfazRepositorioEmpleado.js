@@ -5,17 +5,14 @@ class  InterfazRepositorioEmpleado{
     insertarEmpleado(empleado){
         return  this.persitencia.insertarEmpleado(empleado);
     }
-    buscarEmpleado(empleado){
-        this.persitencia.buscarEmpleado(empleado);
+    obtenerUnEmpleado(ci){
+        return this.persitencia.obtenerUnEmpleado(ci);
     }
-    actualizarEmpleado(empleado, nuevosValores){
-        this.persitencia.actualizarEmpleado(empleado, nuevosValores);
+    eliminarEmpleado(ci) {
+        return this.persitencia.eliminarEmpleado(ci);
     }
-    eliminarEmpleado(empleado) {
-        this.persitencia.eliminarEmpleado(empleado);
-    }
-    devolverTodosLosEmpleado(){
-        this.persitencia.devolverTodosLosEmpleado();
+    obtenerEmpleados(){
+        return this.persitencia.obtenerEmpleados();
     }
 }
 module.exports = { InterfazRepositorioEmpleado };
