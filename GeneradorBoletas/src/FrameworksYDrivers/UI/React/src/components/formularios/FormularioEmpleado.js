@@ -60,8 +60,93 @@ class FormularioEmpleado extends React.Component{
         datosEmpleado.metodosDeNotificacion = this.crearListaDeNotificaciones();
         this.props.submit(datosEmpleado);
     }
+    esEmpleadoComision(tipoEmpleado) {
+        return tipoEmpleado == "Comision";
+    }
+    esEmpleadoFijo(tipoEmpleado) {
+        return tipoEmpleado == "Fijo";
+    }
+    esEmpleadoParcial(tipoEmpleado) {
+        return tipoEmpleado == "Parcial";
+    }
+    generarCampoFormularioDeSalario(salario) {
+        return (<Form.Field>
+                    <label htmlFor="salario">Salario</label>
+                    <input
+                        style={styles}  
+                        id="salario" 
+                        name="salario" 
+                        placeholder="9000" 
+                        value={salario}    
+                        onChange={this.onChange}
+                    />
+                </Form.Field>);
+    }
+    generarCampoFormularioDeFechaInicioLaboral(fechaInicioLaboral) {
+        return (<Form.Field>
+                    <label htmlFor="fechaInicioLaboral">Fecha de inicio laboral</label>
+                    <input
+                        style={styles}  
+                        type="date"  
+                        id="fechaInicioLaboral" 
+                        name="fechaInicioLaboral"  
+                        value={fechaInicioLaboral} 
+                        onChange={this.onChange}
+                    />
+                </Form.Field>);
+    }
+    generarCampoFormularioDeComision(comision) {
+        return (<Form.Field>
+                    <label htmlFor="comision">Comision</label>
+                    <input
+                        style={styles}  
+                        id="comision" 
+                        name="comision" 
+                        placeholder="110" 
+                        value={comision}    
+                        onChange={this.onChange}
+                    />
+                </Form.Field>);
+    }
+    generarCampoFormularioDeSalarioBase(salarioBase) {
+        return (<Form.Field>
+                <label htmlFor="salarioBase">Salario base</label>
+                <input
+                    style={styles}  
+                    id="salarioBase" 
+                    name="salarioBase" 
+                    placeholder="110" 
+                    value={salarioBase}    
+                    onChange={this.onChange}
+                />
+            </Form.Field>);
+    }
+    generarCampoFormularioDeMontoPorHora(montoPorHora) {
+        return (<Form.Field>
+                    <label htmlFor="montoPorHora">Monto por hora</label>
+                    <input
+                        style={styles}  
+                        id="montoPorHora" 
+                        name="montoPorHora" 
+                        placeholder="20" 
+                        value={montoPorHora}    
+                        onChange={this.onChange}
+                    />
+                </Form.Field> );
+    }
+    generarCamposFormularios(datosEmpleado) {
+        return {
+            "campoFormularioDeSalario": this.generarCampoFormularioDeSalario(datosEmpleado.salario),
+            "campoFormularioDeFechaInicioLaboral": this.generarCampoFormularioDeFechaInicioLaboral(datosEmpleado.fechaInicioLaboral),
+            "campoFormularioDeComision": this.generarCampoFormularioDeComision(datosEmpleado.comision),
+            "campoFormularioDeSalarioBase": this.generarCampoFormularioDeSalarioBase(datosEmpleado.salarioBase),
+            "campoFormularioDeMontoPorHora": this.generarCampoFormularioDeMontoPorHora(datosEmpleado.montoPorHora),
+        }
+    }
     render(){
         const { datosEmpleado } = this.state;
+        const camposFormulario = this.generarCamposFormularios(datosEmpleado);
+        
         return(
             <Form onSubmit={this.onSubmit}>
                 <Form.Field>
@@ -87,37 +172,12 @@ class FormularioEmpleado extends React.Component{
                     />
                 </Form.Field> 
                 <Form.Field>
-                    <label htmlFor="salario">Salario</label>
-                    <input
-                        style={styles}  
-                        id="salario" 
-                        name="salario" 
-                        placeholder="9000" 
-                        value={datosEmpleado.salario}    
-                        onChange={this.onChange}
-                    />
-                </Form.Field> 
-                <Form.Field>
-                    <label htmlFor="montoPorHora">Monto por hora</label>
-                    <input
-                        style={styles}  
-                        id="montoPorHora" 
-                        name="montoPorHora" 
-                        placeholder="20" 
-                        value={datosEmpleado.montoPorHora}    
-                        onChange={this.onChange}
-                    />
-                </Form.Field> 
-                <Form.Field>
-                    <label htmlFor="comision">Comision</label>
-                    <input
-                        style={styles}  
-                        id="comision" 
-                        name="comision" 
-                        placeholder="110" 
-                        value={datosEmpleado.comision}    
-                        onChange={this.onChange}
-                    />
+                    <label htmlFor="tipo">Tipo</label>
+                    <select style={styles} id="tipo" name="tipo" value={datosEmpleado.tipo} onChange={this.onChange}>
+                        <option key="1" value={"Parcial"}>Parcial</option>
+                        <option key="2" value={"Comision"}>Comision</option>
+                        <option key="3" value={"Fijo"}>Fijo</option>
+                    </select>
                 </Form.Field>
                 <Form.Field>
                     <label htmlFor="metodoDePago">Metodo de pago</label>
@@ -127,36 +187,11 @@ class FormularioEmpleado extends React.Component{
                         <option key="3" value={"Efectivo"}>Efectivo</option>
                     </select>
                 </Form.Field>  
-                <Form.Field>
-                    <label htmlFor="salarioBase">Salario base</label>
-                    <input
-                        style={styles}  
-                        id="salarioBase" 
-                        name="salarioBase" 
-                        placeholder="110" 
-                        value={datosEmpleado.salarioBase}    
-                        onChange={this.onChange}
-                    />
-                </Form.Field>
-                <Form.Field>
-                    <label htmlFor="tipo">Tipo</label>
-                    <select style={styles} id="tipo" name="tipo" value={datosEmpleado.tipo} onChange={this.onChange}>
-                        <option key="1" value={"Parcial"}>Parcial</option>
-                        <option key="2" value={"Comision"}>Comision</option>
-                        <option key="3" value={"Fijo"}>Fijo</option>
-                    </select>
-                </Form.Field>
-                <Form.Field>
-                    <label htmlFor="fechaInicioLaboral">Fecha de inicio laboral</label>
-                    <input
-                        style={styles}  
-                        type="date"  
-                        id="fechaInicioLaboral" 
-                        name="fechaInicioLaboral"  
-                        value={datosEmpleado.fechaInicioLaboral} 
-                        onChange={this.onChange}
-                    />
-                </Form.Field>
+                {this.esEmpleadoComision(datosEmpleado.tipo)?camposFormulario.campoFormularioDeComision:[]}
+                {this.esEmpleadoComision(datosEmpleado.tipo)?camposFormulario.campoFormularioDeSalarioBase:[]}
+                {this.esEmpleadoFijo(datosEmpleado.tipo)?camposFormulario.campoFormularioDeSalario:[]}
+                {this.esEmpleadoFijo(datosEmpleado.tipo)?camposFormulario.campoFormularioDeFechaInicioLaboral:[]}
+                {this.esEmpleadoParcial(datosEmpleado.tipo)?camposFormulario.campoFormularioDeMontoPorHora:[]}
                 <Form.Group grouped>
                     <label>Metodos de notificacion</label>
                     <Form.Field onChange={this.agregarNotificacion.bind(this, "Facebook")} value="Facebook" label='Facebook' control='input' type='checkbox'/>
