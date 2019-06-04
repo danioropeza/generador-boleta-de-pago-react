@@ -9,7 +9,8 @@ var CrearEmpleadoInteractor = require("../../ReglasDeNegocioAplicacion/CasosDeUs
 var ObtenerEmpleadosInteractor = require("../../ReglasDeNegocioAplicacion/CasosDeUso/ObtenerEmpleadosInteractor").ObtenerEmpleadosInteractor;
 var ObtenerUnEmpleadoInteractor = require("../../ReglasDeNegocioAplicacion/CasosDeUso/ObtenerUnEmpleadoInteractor").ObtenerUnEmpleadoInteractor;
 var EliminarEmpleadoInteractor = require("../../ReglasDeNegocioAplicacion/CasosDeUso/EliminarEmpleadoInteractor").EliminarEmpleadoInteractor;
-
+var EliminarEmpleadoInteractor = require("../../ReglasDeNegocioAplicacion/CasosDeUso/EliminarEmpleadoInteractor").EliminarEmpleadoInteractor;
+var GenerarEmpleadoJSONInteractor = require("../../ReglasDeNegocioAplicacion/CasosDeUso/GenerarEmpleadoJSONInteractor").GenerarEmpleadoJSONInteractor;
 
 var PeticionModeloEmpleado = require("../ModeloDePeticion/ModeloDePeticionEmpleado").PeticionModeloEmpleado;
 
@@ -17,6 +18,7 @@ var PresentadorCrearEmpleado = require("../Presentadores/PresentadorCrearEmplead
 var PresentadorObtenerEmpleados = require("../Presentadores/PresentadorObtenerEmpleados").PresentadorObtenerEmpleados;
 var PresentadorObtenerUnEmpleado = require("../Presentadores/PresentadorObtenerUnEmpleado").PresentadorObtenerUnEmpleado;
 var PresentadorEliminarEmpleado = require("../Presentadores/PresentadorEliminarEmpleado").PresentadorEliminarEmpleado;
+var PresentadorGenerarEmpleadoJSON = require("../Presentadores/PresentadorGenerarEmpleadoJSON").PresentadorGenerarEmpleadoJSON;
 
 const repositorio = new InterfazRepositorioEmpleado(new PersistenciaEmpleadoJSON());
 
@@ -24,6 +26,7 @@ const presentadorCrearEmpleado = new PresentadorCrearEmpleado();
 const presentadorObtenerEmpleados = new PresentadorObtenerEmpleados();
 const presentadorObtenerUnEmpleado = new PresentadorObtenerUnEmpleado();
 const presentadorEliminarEmpleado = new PresentadorEliminarEmpleado();
+const presentadorGenerarEmpleadoJSON = new PresentadorGenerarEmpleadoJSON();
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -57,6 +60,13 @@ app.post('/empleado/nuevo', function(peticion,respuesta){
     respuesta.send(presentadorRespuesta);
 }); 
 
+app.get('/empleado/generarjson', function(peticion,respuesta){
+    const generarEmpleadoJSONInteractor = new GenerarEmpleadoJSONInteractor(repositorio);
+    let respuestaInteractor = generarEmpleadoJSONInteractor.generarJSON();
+    let presentadorRespuesta = presentadorGenerarEmpleadoJSON.obtenerRespuesta(respuestaInteractor);
+    respuesta.send(presentadorRespuesta);
+});
+
 app.get('/empleado/:ci',function(peticion,respuesta){
     let ci = parseInt(peticion.params.ci).toString();
     const obtenerUnEmpleadoInteractor = new ObtenerUnEmpleadoInteractor(repositorio);
@@ -72,4 +82,5 @@ app.delete('/empleado/:ci', function(peticion,respuesta){
     let presentadorRespuesta = presentadorEliminarEmpleado.obtenerRespuesta(respuestaInteractor);
     respuesta.send(presentadorRespuesta);
 });
+
 app.listen(7000);

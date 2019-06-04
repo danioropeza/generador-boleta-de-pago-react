@@ -19,6 +19,7 @@
     "nyc": "^13.3.0"
   },
   "dependencies": {
+    "blob": "0.0.5",
     "body-parser": "^1.18.3",
     "chai": "^4.2.0",
     "coverage": "^0.1.5",

@@ -14,5 +14,8 @@ class  InterfazRepositorioEmpleado{
     obtenerEmpleados(){
         return this.persitencia.obtenerEmpleados();
     }
+    generarJSON() {
+        return this.persitencia.generarJSON();
+    }
 }
 module.exports = { InterfazRepositorioEmpleado };

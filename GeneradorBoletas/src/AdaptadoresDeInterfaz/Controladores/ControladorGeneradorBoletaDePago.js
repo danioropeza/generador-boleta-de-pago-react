@@ -23,9 +23,7 @@ app.use(express.static(__dirname+'/site'));
 app.get('/generadorBoletadepagos',function(req,res){
     const repositorio = new InterfazRepositorioEmpleado(new PersistenciaEmpleadoMongoDB());
     var todosLosEmpleados = repositorio.devolverTodosLosEmpleado();
-    console.log("bla entrada");
-    console.log(todosLosEmpleados);
-    console.log("bla");
+    
     /* 
     const requestModelUser = PeticionModeloEmpleado(request.body);
     

@@ -1,8 +1,8 @@
 var fs = require('fs');
+
 function cargarDatos(){
     var obj = JSON.parse(fs.readFileSync('../../FrameworksYDrivers/BaseDeDatos/JSON/empleados.json', 'utf8'));
-    console.log(obj);
-    return [obj];
+    return obj;
 }
 class  PersistenciaEmpleadoJSON{ 
     constructor(persitencia) {
@@ -36,6 +36,13 @@ class  PersistenciaEmpleadoJSON{
     }
     obtenerEmpleados(){
         return this.listaEmpleados;
+    }
+    generarJSON() {
+        var listaDeEmpleadosJSON = JSON.stringify(this.listaEmpleados);
+        fs.writeFile('../../FrameworksYDrivers/BaseDeDatos/JSON/empleados.json', listaDeEmpleadosJSON, (error) => {
+            if (error) throw error
+        });
+        return "Ok";
     }
 }
 module.exports = { PersistenciaEmpleadoJSON };
