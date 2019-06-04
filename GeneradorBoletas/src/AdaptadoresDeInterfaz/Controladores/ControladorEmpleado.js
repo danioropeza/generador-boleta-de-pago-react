@@ -4,11 +4,20 @@ const app=express();
 var  bodyParser = require("body-parser");
 var InterfazRepositorioEmpleado = require("../Almacenamiento/db/InterfazRepositorioEmpleado").InterfazRepositorioEmpleado;
 var PersistenciaEmpleadoJSON = require("../../FrameworksYDrivers/BaseDeDatos/JSON/PersistenciaEmpleadoJSON").PersistenciaEmpleadoJSON;
-var CrearEmpleado = require("../../ReglasDeNegocioAplicacion/CasosDeUso/CrearEmpleado").CrearEmpleado;
+
+var CrearEmpleadoInteractor = require("../../ReglasDeNegocioAplicacion/CasosDeUso/CrearEmpleadoInteractor").CrearEmpleadoInteractor;
+var ObtenerEmpleadosInteractor = require("../../ReglasDeNegocioAplicacion/CasosDeUso/ObtenerEmpleadosInteractor").ObtenerEmpleadosInteractor;
+
+
 var PeticionModeloEmpleado = require("../ModeloDePeticion/ModeloDePeticionEmpleado").PeticionModeloEmpleado;
+
 var PresentadorCrearEmpleado = require("../Presentadores/PresentadorCrearEmpleado").PresentadorCrearEmpleado;
+var PresentadorObtenerEmpleados = require("../Presentadores/PresentadorObtenerEmpleados").PresentadorObtenerEmpleados;
+
 const repositorio = new InterfazRepositorioEmpleado(new PersistenciaEmpleadoJSON());
+
 const presentadorCrearEmpleado = new PresentadorCrearEmpleado();
+const presentadorObtenerEmpleados = new PresentadorObtenerEmpleados();
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -30,16 +39,19 @@ app.get('/', function(req,res){
     console.log("home");
 });
 
-app.get('/empleados',function(request,response){
-    console.log("get empleados");
-    var interfazGeneradorBoletaDePago = new InterfazGeneradorBoletaDePago(new GeneradorBoletaDePago());
+app.get('/empleados',function(peticion,respuesta){
+    const obtenerEmpleadosInteractor = new ObtenerEmpleadosInteractor(repositorio);
+    let respuestaInteractor =  obtenerEmpleadosInteractor.obtenerEmpleados();
+    let presentadorRespuesta =  presentadorObtenerEmpleados.obtenerRespuesta(respuestaInteractor);
+    respuesta.send(presentadorRespuesta);
 });
 
-app.post('/empleado/nuevo', function(request,res){
-    const requestModelUser = PeticionModeloEmpleado(request.body);
-    const crearEmpleado = new CrearEmpleado(repositorio, requestModelUser);
-    let respuesta =  crearEmpleado.crearEmpleadoNuevo();
-    res.send( presentadorCrearEmpleado.presentarRespuesta(respuesta));
+app.post('/empleado/nuevo', function(peticion,respuesta){
+    const requestModelUser = PeticionModeloEmpleado(peticion.body);
+    const crearEmpleadoInteractor = new CrearEmpleadoInteractor(repositorio, requestModelUser);
+    let respuestaInteractor =  crearEmpleadoInteractor.crearEmpleadoNuevo();
+    let presentadorRespuesta =  presentadorCrearEmpleado.obtenerRespuesta(respuestaInteractor);
+    respuesta.send(presentadorRespuesta);
 }); 
 
 app.get('/empleado/:ci',function(req,res){
