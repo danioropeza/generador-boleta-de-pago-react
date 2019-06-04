@@ -149,7 +149,7 @@ describe('calcular el salario para empleados y su fecha de paga', function () {
         let perteneceASindicato = true;
         let empleado = new Empleado("Erick", 1, calculadora,calculadoraDeFecha,metodoDePago,perteneceASindicato);
 
-        expect(empleado.calcularSalario()).equal(743);
+        expect(empleado.calcularSalario()).equal(753);
     });
 
     it('obtener la fecha de paga para un Empleado por comision', function () {
