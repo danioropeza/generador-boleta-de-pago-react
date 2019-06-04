@@ -7,17 +7,20 @@ var PersistenciaEmpleadoJSON = require("../../FrameworksYDrivers/BaseDeDatos/JSO
 
 var CrearEmpleadoInteractor = require("../../ReglasDeNegocioAplicacion/CasosDeUso/CrearEmpleadoInteractor").CrearEmpleadoInteractor;
 var ObtenerEmpleadosInteractor = require("../../ReglasDeNegocioAplicacion/CasosDeUso/ObtenerEmpleadosInteractor").ObtenerEmpleadosInteractor;
+var ObtenerUnEmpleadoInteractor = require("../../ReglasDeNegocioAplicacion/CasosDeUso/ObtenerUnEmpleadoInteractor").ObtenerUnEmpleadoInteractor;
 
 
 var PeticionModeloEmpleado = require("../ModeloDePeticion/ModeloDePeticionEmpleado").PeticionModeloEmpleado;
 
 var PresentadorCrearEmpleado = require("../Presentadores/PresentadorCrearEmpleado").PresentadorCrearEmpleado;
 var PresentadorObtenerEmpleados = require("../Presentadores/PresentadorObtenerEmpleados").PresentadorObtenerEmpleados;
+var PresentadorObtenerUnEmpleado = require("../Presentadores/PresentadorObtenerUnEmpleado").PresentadorObtenerUnEmpleado;
 
 const repositorio = new InterfazRepositorioEmpleado(new PersistenciaEmpleadoJSON());
 
 const presentadorCrearEmpleado = new PresentadorCrearEmpleado();
 const presentadorObtenerEmpleados = new PresentadorObtenerEmpleados();
+const presentadorObtenerUnEmpleado = new PresentadorObtenerUnEmpleado();
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -54,8 +57,12 @@ app.post('/empleado/nuevo', function(peticion,respuesta){
     respuesta.send(presentadorRespuesta);
 }); 
 
-app.get('/empleado/:ci',function(req,res){
-    console.log("get Empleado");
+app.get('/empleado/:ci',function(peticion,respuesta){
+    let ci = parseInt(peticion.params.ci).toString();
+    const obtenerUnEmpleadoInteractor = new ObtenerUnEmpleadoInteractor(repositorio);
+    let respuestaInteractor =  obtenerUnEmpleadoInteractor.obtenerUnEmpleado(ci);
+    let presentadorRespuesta =  presentadorObtenerUnEmpleado.obtenerRespuesta(respuestaInteractor);
+    console.log(presentadorRespuesta);
 });
 
 app.put('/empleado/:ci', function(req, res){
